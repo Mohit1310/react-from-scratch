@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Day 2 | Notes</title>
+  <style>
+    * {
+      text-align: justify;
+    }
+
+    table {
+      border-collapse: collapse;
+      border: 1px solid;
+    }
+
+    th,
+    td {
+      text-align: left;
+      padding: 8px;
+      border: 1px solid;
+    }
+
+    th {
+      background-color: #999;
+    }
+  </style>
+</head>
+
+<body>
+  <h3>Why is React fast?</h3>
+  <p>It has virtual dom but that is just a small part and it useds bundles like parcel which then has more other features like</p>
+  <p>Other key features are:-</p>
+  <ul>
+    <li>Efficient updates</li>
+    <li>Reconcilation</li>
+    <li>Component-based Architecture</li>
+    <li>Unidirectional data flow</li>
+    <li>ShouldComponentUpdate</li>
+    <li>Fiber Architecture</li>
+    <li>Code splitting</li>
+    <li>Virtualization techniques</li>
+  </ul>
+  <hr>
+  <h3>What is 'NPM'?</h3>
+  <p>NPM has no official full form but it handles all the packages created by users i.e a (node package manager). It is
+    an open source 'project' we can say where it has a huge collection of packages which anyone can use, update or
+    publish</p>
+  <hr>
+  <h3>What is 'Parcel/Webpack/Vite'? Why do we need it?</h3>
+  <p>In short these are all bundles used for development of web app, optimization of code, assets and other resources
+    which lead to better performance of the app.</p>
+  <hr>
+  <h3>What is '.parcel-cache'?</h3>
+  <p>It is a cache folder created by Parcel bundler. When we run parcel it budles all the code and the assets to improve
+    the code performance. These all are stored in <b>.parcel-cache</b> folder. When you run the project first time it is
+    created and next time when you run the project again it wil run faster than last time because everything is stored
+    in cache folder. <br><br> <b>.parcel-cache</b> is useful because</p>
+  <ol>
+    <li>Faster builds</li>
+    <li>Reduced Resource usage</li>
+    <li>Efficient Development Workflow</li>
+  </ol>
+  <hr>
+  <h3>What is 'npx'?</h3>
+  <p><b>npx</b> is a executing tool, in npx 'x' is for execution. It comes with Node/npm. It stands for 'Node Package
+    Runner'. Like for creating a react app we use <b>npx create-react-app my-app</b> or to run a react app that uses
+    parcel bundler we use <b>npx parcel index.html</b>.</p>
+  <hr>
+  <h3>What is difference between `dependencies` vs `devDependencies`?</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>Field</th>
+        <th>Purpose</th>
+        <th>Usage</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><code>dependencies</code></td>
+        <td>Main Dependencies</td>
+        <td>Required for the application to run in production.</td>
+      </tr>
+      <tr>
+        <td><code>devDependencies</code></td>
+        <td>Development Dependencies</td>
+        <td>Used during development, testing, and building, but not needed for production.</td>
+      </tr>
+    </tbody>
+  </table>
+  <hr>
+  <h3>What is Tree Shaking?</h3>
+  <p>Simply means removal of <b>dead/unused code</b>.</p>
+  <p>Here's how tree shaking works</p>
+  <ol>
+    <li>Static Analysis</li>
+    <li>Unused code detection</li>
+    <li>Code removal</li>
+  </ol>
+  <p>Benifits of Tree Shaking</p>
+  <ol>
+    <li>Smaller Bundle Size</li>
+    <li>Efficient Resource Usage</li>
+    <li>Optimized for Production</li>
+  </ol>
+  <hr>
+  <h3>What is Hot Module Replacement?</h3>
+  <p>It is a technique used in modern web development to enable real time updates for the application without requiring
+    a full page reload or manual refresh</p>
+  <p>Working of HMR</p>
+  <ol>
+    <li>Detection of changes</li>
+    <li>Selective Replacement</li>
+    <li>Preservation of state</li>
+    <li>Fast Feedback loop</li>
+  </ol>
+  <hr>
+  <h3>List down your favourite 5 superpowers of Parcel and describe any 3 of them in your own words.</h3>
+  <ol>
+    <li>HMR - Hot Module Replacement</li>
+    <li>File Watcher algorithm - written C++</li>
+    <li>BUNDLING</li>
+    <li>MINIFY</li>
+    <li>Cleaning our Code</li>
+  </ol>
+  <hr>
+  <h3>What is <b><code>'.gitignore'</code></b>? What should we add and not add into it</h3>
+  <p>It is a file in which we can specify the files that we don't want to see in our repo but can be viewed on our local
+    machine.</p>
+  <b>- What to add?</b>
+  <ol>
+    <li>Generated files</li>
+    <li>Dependencies</li>
+    <li>Temporary files</li>
+    <li>User-specific files</li>
+    <li>Sensitive information (.env, etc)</li>
+  </ol>
+  <b>- What not to add?</b>
+  <ol>
+    <li>Source code</li>
+    <li>Configuration files</li>
+    <li>Documentation</li>
+    <li>Assets and resources</li>
+    <li>Files required for testing</li>
+  </ol>
+  <p>In general, the goal of <code>.gitignore</code> is to keep your repository clean, focused, and free from
+    unnecessary clutter. By excluding files that are not crucial for the development process, you can maintain a more
+    organized and efficient version control system.</p>
+  <hr>
+  <h3>What is the difference between <code>package.json</code> and <code>package-lock.json</code></h3>
+  <table>
+    <thead>
+      <tr>
+        <th>File</th>
+        <th>Purpose</th>
+        <th>Usage</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><code>package.json</code></td>
+        <td>Dependency Declaration</td>
+        <td>Specifies the project's dependencies, scripts, metadata, and configuration.</td>
+      </tr>
+      <tr>
+        <td><code>package-lock.json</code></td>
+        <td>Dependency Locking</td>
+        <td>Locks dependency versions and resolves them to ensure consistent installs.</td>
+      </tr>
+    </tbody>
+  </table>
+  <p>In summary, while both <code>package.json</code> and <code>package-lock.json</code> are integral parts of Node.js
+    projects managed with npm, they serve different purposes. The <code>package.json</code> file defines project
+    metadata, scripts, and dependencies, while the <code>package-lock.json</code> file ensures that dependency versions
+    are locked and consistent across different installations.</p>
+  <hr>
+  <h3>Why should I not modify <code>package-lock.json</code>?</h3>
+  <p>Following are the reasons for not to modify the file</p>
+  <ul>
+    <li>Dependency consistency</li>
+    <li>Automatic generation</li>
+    <li>Version conflicts</li>
+    <li>Collaboration Issues</li>
+    <li>Upgrades and installs</li>
+    <li>Potential Data loss</li>
+  </ul>
+  <hr>
+  <h3>What is <code>node_modules</code> ? Is it a good idea to push that on git?</h3>
+  <p>The file directory is a default in Node js projects where the dependencies required by the project are installed.
+    This code actually contains the actual code of packages you've specified as dependencies in your
+    <code><b>package.json</b></code> file. Because of this the directory size is very huge and it not a good Idea to
+    push that on git.
+  </p>
+  <hr>
+  <h3>What is the <code><b>dist</b></code> folder?</h3>
+  <p>It is short for <code>distribution</code> or <code>output</code>. It is created when you are running react using
+    the parcel bundle, in here all your code is minified when you run the code using <code>npx parcel index.html</code>
+    for development environment.</p>
+  <hr>
+  <h3>What is <code>browserlists</code>?</h3>
+  <p>It is a configuration tool and library used to specify which browsers and their versions your web application
+    should support. Browserslist is commonly used in web development, especially when setting up autoprefixing for CSS
+    and making decisions about which browser versions to target for compatibility.
+    <br>
+    Browserslist allows you to define a list of browsers that your project needs to support. This list can be used by
+    various tools and libraries to determine how to handle CSS and JavaScript transformations to ensure compatibility
+    with the specified browsers.
+  </p>
+  <p>Here's an example of how Browserslist is typically used:</p>
+  <ul>
+    <li><b>In <code>package.json</code></b></li>
+    <li><code>"browserslist": "> 1%, last 2 versions"</code> </li>
+  </ul>
+</body>
+
+</html>
