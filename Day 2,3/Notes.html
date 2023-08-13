@@ -4,8 +4,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Day 2 | Notes</title>
+  <title>Day 2,3 | Notes</title>
   <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@1,600&family=Roboto:wght@400;900&display=swap');
     * {
       text-align: justify;
     }
@@ -30,7 +31,8 @@
 
 <body>
   <h3>Why is React fast?</h3>
-  <p>It has virtual dom but that is just a small part and it useds bundles like parcel which then has more other features like</p>
+  <p>It has virtual dom but that is just a small part and it useds bundles like parcel which then has more other
+    features like</p>
   <p>Other key features are:-</p>
   <ul>
     <li>Efficient updates</li>
@@ -200,7 +202,8 @@
     for development environment.</p>
   <hr>
   <h3>What is <code>browserlists</code>?</h3>
-  <p>It is a configuration tool and library used to specify which browsers and their versions your web application
+  <p>
+    It is a configuration tool and library used to specify which   browsers and their versions your web application
     should support. Browserslist is commonly used in web development, especially when setting up autoprefixing for CSS
     and making decisions about which browser versions to target for compatibility.
     <br>
@@ -213,6 +216,73 @@
     <li><b>In <code>package.json</code></b></li>
     <li><code>"browserslist": "> 1%, last 2 versions"</code> </li>
   </ul>
+  <hr>
+  <h1>Day 3</h1>
+  <h3>What is JSX?</h3>
+  <p>Simply put <code>jsx</code> is html inside javascript, i.e. javascript XML but it is not official, instead it is
+    XML-like syntax extension to EcmaScript</p>
+  <hr>
+  <h3>Superpowers of <code>jsx</code></h3>
+  <ul>
+    <li>
+      <b>Readability</b>: JSX combines HTML-like syntax with JavaScript, making it easy to understand the structure of
+      UI
+      elements and how they interact with data.
+    </li>
+
+    <li>
+      <b>Declarative Syntax</b>: JSX allows you to declare what the UI should look like based on the current state of
+      your
+      application. It's a declarative way to describe how your UI should react to data changes.
+    </li>
+
+    <li>
+      <b>Embedding Expressions</b>: You can embed JavaScript expressions within JSX using curly braces {}. This enables dynamic
+      rendering and allows you to include variables, functions, and calculations directly within your UI.
+    </li>
+
+    <li>
+      <b>Component Composition</b>: JSX supports the composition of components. You can create and nest components within each
+      other, creating a modular and reusable architecture.
+    </li>
+
+    <li>
+      <b>Babel Transformation</b>: JSX is not natively understood by browsers. However, tools like Babel can transform JSX into
+      plain JavaScript that browsers can understand.
+    </li>
+
+    <li>
+      <b>No Additional Abstraction</b>: While JSX resembles HTML, it's not an entirely new language or template engine. It's a
+      lightweight abstraction that gets transpiled into JavaScript, allowing you to leverage the full power of JavaScript.
+    </li>
+
+    <li>
+      <b>JSX Fragments</b>: JSX Fragments (<>...</>) allow you to group multiple elements without introducing extra nodes into
+      the DOM, improving performance and reducing unnecessary nesting.
+    </li>
+
+    <li>
+      <b>Custom Components</b>: With JSX, you can easily define and use your own custom components. This encourages a modular and
+      maintainable codebase.</li>
+    </li>
+  </ul>
+  </p>
+  <hr>
+  <h3>Role of type attribute in script tag? What options can I use there?
+  </h3>
+  <p>This attribute indicates the type of script represented.</p>
+  <hr>
+  <h3><code>{TitleComponent}</code> vs <code>{&lt;TitleComponent/&gt;}</code> vs <code>{&lt;TitleComponent&gt; &lt;/TitleComponent&gt;}</code> in JSX</h3>
+  <p>
+    <ol>
+      <li>
+        <code>{TitleComponent}</code> is for element only and not a function by element we can consider only a variable but in jsx style eg. <code>
+          <b>const heading = &lt;h1&gt; Namaskaram &lt;/h1&gt;</b>
+        </code>
+      </li>
+      <li>The next 2 are same as they are used to render a functional component or they are also called as component composition. In simple terms we can use a js function add jsx in it and use it as html tag</li>
+    </ol>
+  </p>
 </body>
 
 </html>

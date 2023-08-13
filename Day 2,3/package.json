@@ -2,13 +2,16 @@
   "name": "day-2",
   "version": "1.0.0",
   "description": "",
-  "main": "App.js",
   "scripts": {
+    "start": "parcel index.html",
+    "build": "parcel build index.html",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@babel/core": "^7.22.10",
+    "babel-plugin-transform-remove-console": "^6.9.4",
     "parcel": "^2.9.3",
     "process": "^0.11.10"
   },
@@ -17,7 +20,6 @@
     "react-dom": "^18.2.0"
   },
   "browserslist": [
-    "defaults and supports es6-module",
-    "maintained node versions"
+    "last 2 Edge versions"
   ]
 }
