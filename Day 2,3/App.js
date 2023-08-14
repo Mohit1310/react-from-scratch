@@ -25,6 +25,7 @@
 
 import React from "react";
 import ReactDOM from "react-dom/client";
+import HeaderComponent from "./HeaderComponent";
 
 // const heading = React.createElement(
 //   "h1",
@@ -50,16 +51,17 @@ const Heading = () => (
 // - Class Based Component - OLD
 // Name of component starts with capital letter - not mandatory but good practice
 
-const HeaderComponent = () => {
+const Heading1 = () => {
   return (
     <div>
       {/* //? This is component composition or composing components */}
-      {<Heading /> /* or Heading() */}
-      <h1>Namaste React functional component</h1>
-      <h2>This is a h2 tag</h2>
+      {/* <Heading /> or Heading() */}
+      {/* <h1>Namaste React functional component</h1>
+      <h2>This is a h2 tag</h2> */}
+      <HeaderComponent />
     </div>
   );
 };
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(<HeaderComponent />);
+root.render(<Heading1 />);
