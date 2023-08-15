@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 4</title>
+    <style>
+        * {
+            text-align: justify;
+        }
+
+        table {
+            border-collapse: collapse;
+            border: 1px solid;
+        }
+
+        th,
+        td {
+            text-align: left;
+            padding: 8px;
+            border: 1px solid;
+        }
+
+        th {
+            background-color: #999;
+        }
+
+        .indentation {
+            margin-left: 20px;
+        }
+
+        .indentation1 {
+            margin-left: 40px;
+        }
+    </style>
+</head>
+
+<body>
+    <h3>Is JSX mandatory for React?</h3>
+    <p>
+        No, JSX (JavaScript XML) is not mandatory for writing React applications, but it is highly recommended and
+        widely used due to its benefits. JSX is a syntax extension that allows you to write HTML-like code within
+        JavaScript, making it easier to describe and visualize the structure of your UI components. <br>While you can
+        write React applications using plain JavaScript without JSX, doing so can make your code more verbose, harder to
+        read, and less intuitive. JSX simplifies the process of defining UI elements and their interactions with data by
+        providing a declarative and expressive syntax.
+    </p>
+    <p>Here's an example of a simple React component written with and without JSX:</p>
+    <table>
+        <tr>
+            <th>
+                <h4>With JSX:</h4>
+            </th>
+            <th>
+                <h4>Without JSX:</h4>
+            </th>
+        </tr>
+        <tbody>
+            <td>
+                <code>
+                import React from 'react';<br><br>
+                const MyComponent = () => {
+                    <p class="indentation">return (</p>
+                        <p class="indentation1">&lt;div&gt;</p>
+                        <p class="indentation1">&lt;h1&gt;Hello, JSX!&lt;/h1&gt;</p>
+                        <p class="indentation1">&lt;p&gt;This is a React component with JSX.&lt;/p&gt;</p>
+                        <p class="indentation1">&lt;/div&gt;</p>
+                    <p class="indentation">);</p>
+                };
+                <br>
+                export default MyComponent;
+                </code>
+            </td>
+            <td>
+                <code>
+                    import React from 'react';<br><br>
+                    const MyComponent = () => {<br>
+                    <p class="indentation">return React.createElement('div', null,</p>
+                        <p class="indentation">React.createElement('h1', null, 'Hello, No JSX!'),</p>
+                        <p class="indentation">React.createElement('p', null, 'This is a React component without JSX.')</p>
+                    <p class="indentation">);</p>
+                };
+                <br>
+                export default MyComponent;
+                </code>
+            </td>
+        </tbody>
+    </table>
+    <hr>
+    <h3>Is ES6 mandatory for React?</h3>
+    <p>
+        ES6 (ECMAScript 2015) is not mandatory for writing React applications, but it is highly recommended and widely
+        used due to the modern JavaScript features and improvements it provides. React itself doesn't require you to use
+        ES6, but leveraging ES6 features can significantly enhance your development experience and code quality.
+    </p>
+    <p>Few Reason's why ES6 is benificial</p>
+    <ul>
+        <li>Arrow Functions</li>
+        <li>Classes</li>
+        <li>Template literals</li>
+        <li>Destructuring</li>
+        <li>Spread and rest operators</li>
+        <li>Modules</li>
+        <li>Async/Await</li>
+        <li>Let and Const</li>
+        <li>Default parameters</li>
+    </ul>
+    <hr>
+    <h3>How can I write comments in <code>JSX</code>?</h3>
+    <p>As we know if we use "{}" we can write an js code inside brackets we can use "//...." for single line comment and
+        "{/*...*/}" for multiline comments.</p>
+    <hr>
+    <h3>What is <code>&lt;React.Fragment&gt;&lt;/React.Fragment&gt;</code> and <code>&lt;&gt;&lt;/&gt;</code> ?</h3>
+    <p>
+        Both are used to create a component that doesn't render and additional DOM element. React.Fragment is a built in
+        component while <code>&lt;&gt;&lt;/&gt;</code> is more concise syntax ('fragment shorthand') or empty tag. This
+        is available from React 16.2, in React.fragment we can use '<b>key</b>' or other attributes but not in empty
+        tag.
+    </p>
+    <hr>
+    <h3>What is Virtual DOM?</h3>
+    <p>
+        Virtual DOM simple means a representation of actual DOM. This is used in libraries or frameworks such as React for UI rendering only rendering that element or let's say a new 'div' is added to your code instead of rendering the whole code react only renders the new added code. This process is called <i>reconcilliation</i>
+    </p>
+    <hr>
+    <h3>What is Reconciliation in react?</h3>
+    <p>
+        We can also call it as <i>'Preserving and Resetting State'</i>
+    </p>
+</body>
+
+</html>
