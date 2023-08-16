@@ -121,12 +121,52 @@
     <hr>
     <h3>What is Virtual DOM?</h3>
     <p>
-        Virtual DOM simple means a representation of actual DOM. This is used in libraries or frameworks such as React for UI rendering only rendering that element or let's say a new 'div' is added to your code instead of rendering the whole code react only renders the new added code. This process is called <i>reconcilliation</i>
+        Virtual DOM simple means a representation of actual DOM. This is used in libraries or frameworks such as React
+        for UI rendering only rendering that element or let's say a new 'div' is added to your code instead of rendering
+        the whole code react only renders the new added code. This process is called <i>reconcilliation</i>
     </p>
     <hr>
     <h3>What is Reconciliation in react?</h3>
     <p>
-        We can also call it as <i>'Preserving and Resetting State'</i>
+        We can also call it as <i>'Preserving and Resetting State'</i><br>
+        <b>Defination: </b>The algorithm React uses to diff one tree with another to determine which parts need to be
+        changed.
+    </p>
+    <hr>
+    <h3>What is React Fibre?</h3>
+    <p>
+        It is basically a new and upcoming algorithm/architecture for react's diff algorithm for more we can read <a
+            href="https://github.com/acdlite/react-fiber-architecture" target="_blank">here</a>.
+    </p>
+    <hr>
+    <h3>Why we need keys in React?</h3>
+    <p>
+        The main purpose of keys is to help React differentiate and distinguish elements from each other, increasing its
+        performance when diffing between the virtual and real DOM.
+    </p>
+    <hr>
+    <h3>Can we use index as keys in React?</h3>
+    <p>
+        We can use them but it is not recommended and mostly we should not use them because that can cause rendering /
+        re-rendering
+        issue. Detailed article is <a href="https://robinpokorny.com/blog/index-as-a-key-is-an-anti-pattern/">here</a>.
+    </p>
+    <hr>
+    <h3>What is props in React?</h3>
+    <p>
+        props (properties) in react are simply an arguments to the function. React components use props to communicate
+        with each other. Every parent component can pass some information to its child components by giving them props.
+        Props might remind you of HTML attributes, but you can pass any JavaScript value through them, including
+        objects, arrays, and functions.
+    </p>
+    <hr>
+    <h3>What is Config Driven UI?</h3>
+    <p>
+        For simple terms let's take example of <a href="https://www.swiggy.com/">Swiggy</a>. On the swiggy's website we
+        can see a navbar, carousel which has offers and then the body and so on. Now inside the carousel the offers are
+        different for every city some may have it some may don't and the data is rendered accordingly. So if a city has
+        no offers then directly the body will appear after the navbar and no carousel. This type of rendering is known
+        as Config Driven UI.
     </p>
 </body>
 
