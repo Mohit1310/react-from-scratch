@@ -1,27 +1,8 @@
-import React from "react";
-import ReactDOM from "react-dom/client";
-
-const Header = () => {
-  return (
-    <div className="header">
-      <img
-        src="https://lh3.googleusercontent.com/p/AF1QipO_6cTc3QdC9L2vAOyCkUPG-G-9YeFxo3YiDu3R=w1080-h608-p-no-v0"
-        alt="logo"
-      />
-      <div className="nav-items">
-        <ul>
-          <li>Home</li>
-          <li>About</li>
-          <li>Products</li>
-          <li>Cart</li>
-        </ul>
-      </div>
-    </div>
-  );
-};
+export const IMG_CDN_URL =
+  "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/";
 
 //* Config Driven UI
-const restaurantsList = [
+export const restaurantsList = [
   {
     info: {
       id: "103299",
@@ -531,50 +512,3 @@ const restaurantsList = [
     },
   },
 ];
-
-//* Optional Chaining HW*
-const RestuarantCard = ({ name, cuisines, cloudinaryImageId, avgRating }) => {
-  return (
-    <div className="card">
-      <img
-        src={
-          "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/" +
-          cloudinaryImageId
-        }
-        alt="image"
-      />
-      <h2>{name}</h2>
-      <h3>{cuisines.join(", ")}</h3>
-      <h4>{avgRating} stars</h4>
-    </div>
-  );
-};
-
-
-//* no key (not acceptable) <<<<<<<< index key(last option) <<<<<<< unique key(best practice)
-const Body = () => {
-  return (
-    <div className="restuarant-lists">
-      {restaurantsList.map((restaurant) => (
-        <RestuarantCard {...restaurant.info} key={restaurant.info.id}/>
-      ))}
-    </div>
-  );
-};
-
-const Footer = () => {
-  return <h4>Footer</h4>;
-};
-
-const AppLayout = () => {
-  return (
-    <>
-      <Header />
-      <Body />
-      <Footer />
-    </>
-  );
-};
-
-const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(<AppLayout />);
