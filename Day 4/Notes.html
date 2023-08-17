@@ -133,7 +133,7 @@
         changed.
     </p>
     <hr>
-    <h3>What is React Fibre?</h3>
+    <h3>What is React Fiber?</h3>
     <p>
         It is basically a new and upcoming algorithm/architecture for react's diff algorithm for more we can read <a
             href="https://github.com/acdlite/react-fiber-architecture" target="_blank">here</a>.
@@ -167,6 +167,88 @@
         different for every city some may have it some may don't and the data is rendered accordingly. So if a city has
         no offers then directly the body will appear after the navbar and no carousel. This type of rendering is known
         as Config Driven UI.
+    </p>
+    <hr>
+    <h1>Day 5</h1>
+    <h3>What is the difference between "Named" Export, "Default" export and "* as" export?</h3>
+    <table>
+        <tr>
+            <th>Export Type</th>
+            <th>Usage</th>
+            <th>Import Syntax</th>
+            <th>Example</th>
+        </tr>
+        <tr>
+            <td>Named Export</td>
+            <td>Export multiple values from a module with distinct names.</td>
+            <td><code>import &#123; valueName &#125; from 'modulePath';</code></td>
+            <td>
+                <pre><code>    // Module: myModule.js
+    export const name = 'John';
+    export const age = 30;
+
+    // Import in another file
+    import &#123; name, age &#125; from './myModule';</code></pre>
+            </td>
+        </tr>
+        <tr>
+            <td>Default Export</td>
+            <td>Export a single value as the default export of a module.</td>
+            <td><code>import valueName from 'modulePath';</code></td>
+            <td>
+                <pre><code>    // Module: myModule.js
+    const greeting = 'Hello';
+    export default greeting;
+
+    // Import in another file
+    import greeting from './myModule';</code></pre>
+            </td>
+        </tr>
+        <tr>
+            <td>Namespace Export ("* as" Export)</td>
+            <td>Export all values from a module as properties of an object.</td>
+            <td><code>import * as moduleName from 'modulePath';</code></td>
+            <td>
+                <pre><code>    // Module: myModule.js
+    export const name = 'Alice';
+    export const age = 25;
+
+    // Import in another file
+    import * as myModule from './myModule';</code></pre>
+            </td>
+        </tr>
+    </table>
+    <hr>
+    <h3>What is the importance of config.js/constants.js ?</h3>
+    <p>
+        <code><b>`config.js`</b></code> or <code><b>`constants.js`</b></code> files are often used in web development to
+        centralize and manage configuration
+        settings and constants within an application. These files play a crucial role in maintaining a clean codebase,
+        improving maintainability, and making it easier to manage various aspects of your application.
+    </p>
+    <p>Here's the importance of using such files:</p>
+    <ul>
+        <li>Centralization</li>
+        <li>Maintainability</li>
+        <li>Readability</li>
+        <li>Avoiding Magic Values</li>
+        <li>Easy Updates</li>
+        <li>Collaboration</li>
+        <li>Testing</li>
+    </ul>
+    <hr>
+    <h3>What are React Hooks ?</h3>
+    <p>
+        Hooks were introduced in React 16.8 as a way to simplify and improve the development experience of writing
+        components by promoting more reusable and easier-to-understand code. Hooks addresses the need for better code
+        organization, reusablity, and state management in functional components. <br>
+    </p>
+    <hr>
+    <h3>Why do we need a `useState` Hook?</h3>
+    <p>
+        <code><b>useState</b></code> in react is used to manage the local state with functional components. It is like a
+        variable a react. The main reason is to enable functional components to have dynamic, mutable state, which is
+        crucial for building interactive and data-driven user interfaces.
     </p>
 </body>
 
