@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import { restaurantsList } from "../../constants";
 import RestuarantCard from "./RestaurantCard";
 import Shimmer from "./Shimmer";
+import { Link } from "react-router-dom";
 
 function filteredData(searchInput, restaurants) {
   const filterData = restaurants.filter((restaurant) =>
@@ -18,7 +18,6 @@ const Body = () => {
 
   const [allRestaurants, setAllRestaurants] = useState([]);
   const [filteredRestaurants, setFilteredRestaurants] = useState([]);
-  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     //* Api Calls
@@ -30,7 +29,6 @@ const Body = () => {
       "https://www.swiggy.com/dapi/restaurants/list/v5?lat=17.6599188&lng=75.9063906&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
     );
     const json = await data.json();
-    console.log("Fetched JSON:", json); // Log the fetched data
     //* Optional Chaining
     setAllRestaurants(
       json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants
@@ -40,12 +38,12 @@ const Body = () => {
     );
   }
 
-  console.log("render");
+  console.log(useState());
 
   //* not render components (Early return)
   if (!allRestaurants) return null;
 
-  return allRestaurants.length === 0 ? (
+  return filteredRestaurants.length === 0 ? (
     <Shimmer />
   ) : (
     <>
@@ -77,9 +75,9 @@ const Body = () => {
           <h1>No Restaurants found</h1>
         ) : (
           filteredRestaurants.map((restaurant) => (
-            <>
-              <RestuarantCard {...restaurant.info} key={restaurant.info.id} />
-            </>
+            <Link to={"/restaurant/" + restaurant?.info?.id} key={restaurant?.info?.id}>
+              <RestuarantCard {...restaurant.info} />
+            </Link>
           ))
         )}
       </div>

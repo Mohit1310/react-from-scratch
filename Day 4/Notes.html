@@ -608,6 +608,158 @@
         <code>`<b>json</b>`</code> variable now has the data, and you can show it on the screen or use it to update
         things. It's like enjoying the meal you ordered!
     </p>
+    <hr>
+    <h1>Day 7</h1>
+    <h3>What are various ways to add images into our App? Explain with code examples.</h3>
+    <p>There are 3 ways:</p>
+    <h4>1. Using `<code>img</code>` Tag:</h4>
+    <p>This is a standard HTML <code>&lt;img/&gt;</code> tag</p>
+    <code>
+        <pre>
+    import React from 'react';
+
+    const App = () => {
+        return (
+            &lt;div&gt;
+            &lt;h1&gt;Using img Tag&lt;/h1&gt;
+            &lt;img src="/path/to/image.jpg" alt="Sample" /&gt;
+            &lt;/div&gt;
+        );
+    };
+
+    export default App;</pre>
+    </code>
+    <h4>2. Imported Images:</h4>
+    <p>We can import images directly into our React components and use them as variables.</p>
+    <code>
+        <pre>
+    import React from 'react';
+    import sampleImage from './path/to/image.jpg';
+
+    const App = () => {
+        return (
+            &lt;div&gt;
+            &lt;h1&gt;Importing Images&lt;/h1&gt;
+            &lt;img src={sampleImage} alt="Sample" /&gt;
+            &lt;/div&gt;
+        );
+    };
+
+    export default App;</pre>
+    </code>
+    <h4>3. Using <code>public</code> folder:</h4>
+    <p>We can place our images in public folder and use them directly</p>
+    <code>
+        <pre>
+    import React from 'react';
+
+    const App = () => {
+        return (
+            &lt;div&gt;
+            &lt;h1&gt;Using public folder&lt;/h1&gt;
+            &lt;img src="/image.jpg" alt="Sample" /&gt;
+            &lt;/div&gt;
+        );
+    };
+
+    export default App;</pre>
+    </code>
+    <p>
+        Remember that in the third method, images placed in the `<code><b>public</b></code>` folder are treated as
+        static assets, and you reference them without specifying the folder structure beyond the
+        `<code><b>public</b></code>` directory.
+    </p>
+    <hr>
+    <h3>What would happen if we do <code>console.log(useState())</code> ?</h3>
+    <p>
+        If you call `<code><b>console.log(useState())</b></code>`, it would show an array with two elements in the
+        browser's console. The first element of the array would be the current state value, and the second element would
+        be a function that you can use to update that state.
+        <br>
+        Here's an example of what the output might look like in the console:
+        <code><b><pre>[initialStateValue, function]</pre></b></code>
+
+        Let's break down what each part means:
+        <br>
+        - `<code><b>initialStateValue</b></code>`: This is the initial value you provide when you call the
+        `<code><b>useState()</b></code>` function. It's the current value of the state. If you didn't pass any initial
+        value, it would be `<code><b>undefined</b></code>` or whatever you set as the default.
+        <br>
+        - `<code><b>function</b></code>`: This is the updater function that you can use to change the state's value.
+        When you call this function and provide a new value, React will re-render the component with the new state
+        value.
+        <br>
+        For example, if you initially called `<code><b>useState('Hello')</b></code>`, the output of
+        `<code><b>console.log(useState())</b></code>` might look like this:
+        <code><pre><b>["Hello", function]</b></pre></code>
+        Keep in mind that you usually don't call `<code><b>useState()</b></code>` directly like this. Instead, you use
+        it inside a functional component and use destructuring to extract the state value and updater function
+        separately:
+        <br>
+        <code><pre><b>const [stateValue, setStateValue] = useState(initialState);</b></pre></code>
+        This helps you work with the state more conveniently and clearly in your component.
+    </p>
+    <hr>
+    <h3>How will useEffect behave if we don't add a dependency array ?</h3>
+    <p>It will get called everytime we are updating the ui i.e. any change in state.</p>
+    <hr>
+    <h3>What is SPA?</h3>
+    <p>
+        A Single Page Application (SPA) is a type of web application that interacts with the user by dynamically
+        rewriting the current page rather than loading entire new pages from the server. In simple terms the whole
+        application is just one pagae and no page gets refreshed everytime we navigate.
+    </p>
+    <hr>
+    <h3>What is difference between Client Side Routing and Server Side Routing?</h3>
+    <table>
+        <tr>
+            <th>Aspect</th>
+            <th>Client-Side Routing</th>
+            <th>Server-Side Routing</th>
+        </tr>
+        <tr>
+            <td>Definition</td>
+            <td>Routing is handled within the browser using JavaScript. Navigation triggers updates to the DOM without
+                full page reloads.</td>
+            <td>Routing is managed by the server. Each navigation request typically involves a full page reload.</td>
+        </tr>
+        <tr>
+            <td>Page Load</td>
+            <td>Initial page load retrieves a basic HTML shell, and additional content is fetched and rendered using
+                JavaScript.</td>
+            <td>Each navigation request triggers a complete page load from the server with the necessary content.</td>
+        </tr>
+        <tr>
+            <td>Performance</td>
+            <td>Improves performance by reducing server requests. Can lead to faster transitions between pages once
+                initial load is complete.</td>
+            <td>May have slower navigation due to full page reloads, especially on larger websites.</td>
+        </tr>
+        <tr>
+            <td>Browser History</td>
+            <td>Uses client-side routing libraries to manage browser history and maintain the appearance of multiple
+                pages.</td>
+            <td>Each navigation request creates a new entry in the browser history, allowing for easy back/forward
+                navigation.</td>
+        </tr>
+        <tr>
+            <td>SEO</td>
+            <td>Initially problematic for SEO due to search engines not executing JavaScript. Can be mitigated using
+                server-side rendering (SSR) or pre-rendering.</td>
+            <td>Generally more SEO-friendly since content is fully available to search engine crawlers during initial
+                page load.</td>
+        </tr>
+        <tr>
+            <td>URL Structure</td>
+            <td>Uses hash-based URLs or HTML5 History API for clean URLs without full page reloads.</td>
+            <td>Uses traditional URLs that map directly to server resources.</td>
+        </tr>
+        <tr>
+            <td>Interactivity</td>
+            <td>Provides smoother user experience with dynamic transitions and animations between pages.</td>
+            <td>May require additional interactivity scripting to enhance user experience during full page reloads.</td>
+        </tr>
+    </table>
 </body>
 
 </html>

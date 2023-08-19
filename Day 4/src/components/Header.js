@@ -1,33 +1,45 @@
 import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import Logo from "../assets/img/logo.png";
+
+//* SPA - single page application
+//* Client side routing
 
 const Title = () => {
   return (
-    <a href="/">
-      <img
-        className="logo"
-        src="https://lh3.googleusercontent.com/p/AF1QipO_6cTc3QdC9L2vAOyCkUPG-G-9YeFxo3YiDu3R=w1080-h608-p-no-v0"
-        alt="logo"
-      />
-    </a>
+    <Link to="/">
+      <img className="logo" src={Logo} alt="logo" />
+    </Link>
   );
 };
 
 const Header = () => {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(true);
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    navigate('/login');
+  }
 
   return (
     <div className="header">
       <Title />
       <div className="nav-items">
         <ul>
-          <li>Home</li>
-          <li>About</li>
-          <li>Products</li>
+          <li>
+            <Link to="/">Home</Link>
+          </li>
+          <li>
+            <Link to="/about">About</Link>
+          </li>
+          <li>
+            <Link to="/contact">Contact</Link>
+          </li>
           <li>Cart</li>
         </ul>
       </div>
       {isLoggedIn ? (
-        <button onClick={() => setIsLoggedIn(false)}>Logout</button>
+        <button onClick={handleLogout}>Logout</button>
       ) : (
         <button onClick={() => setIsLoggedIn(true)}>Login</button>
       )}
