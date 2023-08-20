@@ -38,7 +38,7 @@ const Body = () => {
     );
   }
 
-  console.log(useState());
+  // console.log(useState());
 
   //* not render components (Early return)
   if (!allRestaurants) return null;
