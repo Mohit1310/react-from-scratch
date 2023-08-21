@@ -47,23 +47,23 @@
 </head>
 
 <body>
-    <h3>Is JSX mandatory for React?</h3>
+    <h3>Is mandatory for React?</h3>
     <p>
-        No, JSX (JavaScript XML) is not mandatory for writing React applications, but it is highly recommended and
-        widely used due to its benefits. JSX is a syntax extension that allows you to write HTML-like code within
+        No, (JavaScript XML) is not mandatory for writing React applications, but it is highly recommended and
+        widely used due to its benefits. is a syntax extension that allows you to write HTML-like code within
         JavaScript, making it easier to describe and visualize the structure of your UI components. <br>While you can
-        write React applications using plain JavaScript without JSX, doing so can make your code more verbose, harder to
-        read, and less intuitive. JSX simplifies the process of defining UI elements and their interactions with data by
+        write React applications using plain JavaScript without , doing so can make your code more verbose, harder to
+        read, and less intuitive. simplifies the process of defining UI elements and their interactions with data by
         providing a declarative and expressive syntax.
     </p>
-    <p>Here's an example of a simple React component written with and without JSX:</p>
+    <p>Here's an example of a simple React component written with and without :</p>
     <table>
         <tr>
             <th>
-                <h4>With JSX:</h4>
+                <h4>With :</h4>
             </th>
             <th>
-                <h4>Without JSX:</h4>
+                <h4>Without :</h4>
             </th>
         </tr>
         <tbody>
@@ -73,8 +73,8 @@
                 const MyComponent = () => {
                     <p class="indentation">return (</p>
                         <p class="indentation1">&lt;div&gt;</p>
-                        <p class="indentation1">&lt;h1&gt;Hello, JSX!&lt;/h1&gt;</p>
-                        <p class="indentation1">&lt;p&gt;This is a React component with JSX.&lt;/p&gt;</p>
+                        <p class="indentation1">&lt;h1&gt;Hello, !&lt;/h1&gt;</p>
+                        <p class="indentation1">&lt;p&gt;This is a React component with .&lt;/p&gt;</p>
                         <p class="indentation1">&lt;/div&gt;</p>
                     <p class="indentation">);</p>
                 };
@@ -87,8 +87,8 @@
                     import React from 'react';<br><br>
                     const MyComponent = () => {<br>
                     <p class="indentation">return React.createElement('div', null,</p>
-                        <p class="indentation">React.createElement('h1', null, 'Hello, No JSX!'),</p>
-                        <p class="indentation">React.createElement('p', null, 'This is a React component without JSX.')</p>
+                        <p class="indentation">React.createElement('h1', null, 'Hello, No !'),</p>
+                        <p class="indentation">React.createElement('p', null, 'This is a React component without .')</p>
                     <p class="indentation">);</p>
                 };
                 <br>
@@ -117,7 +117,7 @@
         <li>Default parameters</li>
     </ul>
     <hr>
-    <h3>How can I write comments in <code>JSX</code>?</h3>
+    <h3>How can I write comments in <code></code>?</h3>
     <p>As we know if we use "{}" we can write an js code inside brackets we can use "//...." for single line comment and
         "{/*...*/}" for multiline comments.</p>
     <hr>
@@ -760,6 +760,179 @@
             <td>May require additional interactivity scripting to enhance user experience during full page reloads.</td>
         </tr>
     </table>
+    <hr>
+    <h1>Day 8</h1>
+    <h3>How do you create Nested Routes react-router-dom cofiguration?</h3>
+    <p>We use a npm library <code>`<b>react-router-dom</b>`</code> and below is the code of how we use it</p>
+    <p>
+        <code>
+            <pre>
+    const appRouter = createBrowserRouter([
+        {
+            path: "/",
+            element: &lt;AppLayout /&gt;,
+            errorElement: &lt;Error /&gt;,
+            children: [
+                {
+                    path: "/",
+                    element: &lt;Body /&gt;,
+                },
+                {
+                    path: "/about",
+                    element: &lt;About /&gt;,
+                    children: [
+                        {
+                            path: "profile",  // "/about/profile"
+                            element: &lt;ProfileClass /&gt;
+                        }
+                    ]
+                },
+                {
+                    path: "/contact",
+                    element: &lt;Contact /&gt;,
+                },
+                {
+                    path: "/restaurant/:resId", // "/restaurant/1234"
+                    element: &lt;RestaurantMenu /&gt;,
+                },
+            ],
+        },
+        {
+            path: "/login",
+            element: &lt;Login /&gt;,
+        },
+    ]);</pre>
+        </code>
+    </p>
+    <hr>
+    <h3>What is the order of life cycle method calls in Class Based Components?</h3>
+    <div>
+        <img src="./src/assets/img/react-lifecycle.png" alt="react-lifecycle-diagram" width="100%"
+            title="Credit: https://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/" />
+    </div>
+    <hr>
+    <h3>Why do we use <code>componentDidMount</code>?</h3>
+    <p>It is a best method we use for API calling in class based component.</p>
+    <hr>
+    <h3>Why do we use <code>componentWillUnmount</code>? Show with example.</h3>
+    <p>
+        We use it to clear the state or to stop the function of that component when we navigate to another component.
+        <br><br> Below is the code eg.
+    </p>
+    <code>
+        <pre>
+    componentDidMount() {
+        this.timer = setInterval(() => {
+            console.log("Class Timer Running");
+        }, 1000);
+    }
+    
+    componentWillUnmount() {
+        clearInterval(this.timer);
+    }</pre>
+    </code>
+    <p>
+        In the above eg. if we don't use <code>`<b>componentWillUnmount</b>`</code> the
+        <code>`<b>setInterval</b>`</code> will keep on running and website may break. That's why we use
+        <code>`<b>componentWillUnmount</b>`</code>
+    </p>
+    <hr>
+    <h3>(Research) Why do we use <code><b>super(props)</b></code> in constructor?</h3>
+    <p>
+        In React class components, the `<code><b>super(props)</b></code>` call is used within the constructor to
+        initialize the parent class's constructor and pass the <code><b>`props`</b></code> object to it. This is
+        necessary because when you create a class that extends another class (in this case, your React component class
+        extending <code><b>`React.Component`</b></code>), you need to make sure that the base class's constructor is
+        called before you can access any properties or methods defined in that base class.
+        <br><br>
+        Here's a breakdown of why `<code><b>super(props)</b></code>` is used:
+        <br><br>
+        1. <b>Inheritance</b>: React class components are usually defined by extending the
+        <code><b>`React.Component`</b></code> class or one of its subclasses. When you create a subclass, you're
+        essentially inheriting the properties and methods of the parent class.
+        <br><br>
+        2. <b>Constructor</b> The <code><b>`constructor`</b></code> is a special method that's executed when an instance
+        of a class is created. It's used to initialize the object's properties and perform setup tasks.
+        <br><br>
+        3. <b>Super Constructor</b>: When you extend a class, your subclass can have its own constructor. However,
+        before you can use <code><b>`this`</b></code> in your subclass's constructor, you need to call the constructor
+        of the parent class (the base class). This is where `<code><b>super(props)</b></code>` comes in.
+        <br><br>
+        - <code><b>`super()`</b></code>: Calling <code><b>`super()`</b></code> without any arguments will invoke the
+        constructor of the parent class with no arguments. If the parent class's constructor requires arguments (like
+        <code><b>`props`</b></code> in this case), this will result in an error.
+        <br><br>
+        - `<code><b>super(props)</b></code>`: By passing <code><b>`props`</b></code> to <code><b>`super()`</b></code>,
+        you're essentially calling the constructor of the parent class (e.g., <code><b>`React.Component`</b></code>)
+        with the <code><b>`props`</b></code> object. This allows the parent class to properly initialize its properties
+        related to props and sets up the necessary environment for your subclass.
+        <br><br>
+        Here's an example of how it's used:
+        <code>
+            <pre>
+    class MyComponent extends React.Component {
+        constructor(props) {
+        <code><b>super(props)</b></code>; // Call the constructor of the parent class (React.Component) with props
+        // Now you can use this.props in your component
+        }
+
+        render() {
+        // ...
+        }
+    }</pre>
+        </code>
+
+        In modern React, you don't actually need to explicitly call `<code><b>super(props)</b></code>` unless you need
+        to access <code><b>`this.props`</b></code> in your constructor. If you don't need to do that, React will
+        automatically call <code><b>`super()`</b></code> for you behind the scenes.
+
+        Keep in mind that React has introduced function components with hooks as a more modern way of building
+        components, and class components are becoming less common in newer React codebases.
+    </p>
+    <hr>
+    <h3>(Research) Why can't we have the callback function of useEffect async?</h3>
+    <p>
+        The callback function of <code><b>`useEffect`</b></code> cannot be declared as <code><b>`async`</b></code>
+        because <code><b>`useEffect`</b></code> expects the callback to
+        either return nothing or a cleanup function. If the callback is declared as <code><b>`async`</b></code>, it
+        implicitly returns a
+        <code><b>`Promise`</b></code>, which is not compatible with the expected return types.
+        <br><br>
+        Example:
+        <br>
+        <code>
+                <pre>
+        // This is incorrect and will lead to unexpected behavior
+        useEffect(async () => {
+            const data = await fetchData(); // fetchData returns a Promise
+            setData(data);
+        }, []);</pre>
+            </code>
+
+        In this example, the <code><b>`useEffect`</b></code> callback is declared as <code><b>`async`</b></code>, and
+        it's using <code><b>`await`</b></code> inside it. However,
+        <code><b>`useEffect`</b></code> doesn't handle Promises returned by the async callback as expected, and it may
+        lead to issues like
+        delayed updates or memory leaks.
+        <br>
+        To work with asynchronous operations inside <code><b>`useEffect`</b></code>, you should call an async function
+        inside the callback:
+        <code>
+                <pre>
+        useEffect(() => {
+            const fetchDataAsync = async () => {
+                const data = await fetchData();
+                setData(data);
+            };
+    
+            fetchDataAsync();
+        }, []);</pre>
+            </code>
+        By defining an async function within the <code><b>`useEffect`</b></code> callback and then calling it
+        immediately, you ensure proper
+        handling of asynchronous operations without breaking the expected behavior of <code><b>`useEffect`</b></code>.
+    </p>
+    <hr>
 </body>
 
 </html>

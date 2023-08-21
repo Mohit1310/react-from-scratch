@@ -1,5 +1,6 @@
 import { Component } from "react";
-import ProfileClass from "../components/ProfileClass.js";
+// import ProfileClass from "../components/ProfileClass.js";
+import { Link, Outlet } from "react-router-dom";
 
 class About extends Component {
   constructor(props) {
@@ -27,7 +28,9 @@ class About extends Component {
       <div>
         <h1>About us page</h1>
         <p> Day 7</p>
-        <ProfileClass name={"First Child"} />
+        <Link to="profile"><button>My Profile</button></Link>
+        <Outlet />
+        {/* <ProfileClass name={"First Child"} /> */}
       </div>
     );
   }

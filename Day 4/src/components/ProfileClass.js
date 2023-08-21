@@ -6,8 +6,8 @@ class ProfileClass extends React.Component {
     this.state = {
       count: 0,
       userInfo: {
-        name: "Dummy Name",
-        location: "Dummy Location",
+        name: "",
+        location: "",
       },
     };
     console.log("Child - Constructor");
@@ -27,6 +27,7 @@ class ProfileClass extends React.Component {
 
   componentWillUnmount() {
     clearInterval(this.timer);
+    console.log("Child - componentWillUnmount");
   }
 
   render() {
