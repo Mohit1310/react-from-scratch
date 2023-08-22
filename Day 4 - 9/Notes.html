@@ -933,6 +933,95 @@
         handling of asynchronous operations without breaking the expected behavior of <code><b>`useEffect`</b></code>.
     </p>
     <hr>
+    <h3>When and why do we need <code>`lazy()`</code>?</h3>
+    <p>We need <code>`<b>lazy()</b>`</code> when our website becomes very big or has a large no. of components. So we
+        don't need each and every component to be loaded at the same time, so we use lazy so that when we switch to that
+        component then only that component is loaded / rendered</p>
+    <hr>
+    <h3>What is <code><b>Suspense</b></code>?</h3>
+    <p><code><b>Suspense</b></code> is a component in react which we use when we have used the <code>`lazy()`</code> to
+        import that
+        component.</p>
+    <hr>
+    <h3>When do we and why do we need <code><b>Suspense</b></code>?</h3>
+    <p>Simply, when we use <code>`<b>lazy()</b>`</code> we need to use <code><b>Suspense</b></code> or first time we go
+        to that page the
+        page will not load for first time but if go back and revisit that page / component it will now load / render.
+    </p>
+    <hr>
+    <h3>
+        Why we got this error: A component was suspended while responding to synchronous input. This will cause the UI
+        to be replaced with a loading indicator. To fix this, updates that suspend should be wrapped with start
+        transition? How does <code><b>Suspense</b></code> fix this error?
+    </h3>
+    <p>Because after using <code>`<b>lazy()</b>`</code> if we directly go to the component without using
+        <code><b>Suspense</b></code> then on 1st render the page will not load becasue it is a promise and it takes time
+        to load but due to reacts reconcilliation algorithm react continues to load the page but doesn't find anything
+        that's why it throws the error, due to this reason we use <code><b>Suspense</b></code>.</p>
+    <hr>
+    <h3>Advantages and Disadvantages of using this code splitting pattern?</h3>
+    <table>
+        <tr>
+            <th>Code Splitting Pattern</th>
+            <th>Advantages</th>
+            <th>Disadvantages</th>
+        </tr>
+
+        <tr>
+            <td>Lazy Loading</td>
+            <td>
+                <ul>
+                    <li>Improved initial page load time.</li>
+                    <li>Faster perceived performance as critical code loads first.</li>
+                    <li>Reduced resource wastage for users who don't access all features.</li>
+                </ul>
+            </td>
+            <td>
+                <ul>
+                    <li>Potential for slower subsequent loads due to network requests.</li>
+                    <li>Complexity in managing dependencies and ensuring proper execution order.</li>
+                    <li>May require manual optimization to avoid excessive splitting.</li>
+                </ul>
+            </td>
+        </tr>
+
+        <tr>
+            <td>Route-based Splitting</td>
+            <td>
+                <ul>
+                    <li>Optimized loading for specific routes, enhancing user experience.</li>
+                    <li>Allows prioritizing critical paths for faster loading.</li>
+                    <li>Enables better control over resource loading.</li>
+                </ul>
+            </td>
+            <td>
+                <ul>
+                    <li>Potential for over-segmentation, leading to increased network requests.</li>
+                    <li>Requires careful planning and maintenance of route dependencies.</li>
+                    <li>Complexity in handling shared components and state across routes.</li>
+                </ul>
+            </td>
+        </tr>
+
+        <tr>
+            <td>Component-level Splitting</td>
+            <td>
+                <ul>
+                    <li>Granular control over resource loading for specific components.</li>
+                    <li>Improved performance by loading only what's needed.</li>
+                    <li>Enhanced modularity and easier maintenance.</li>
+                </ul>
+            </td>
+            <td>
+                <ul>
+                    <li>Potential for excessive splitting leading to increased HTTP requests.</li>
+                    <li>Complexity in managing inter-component dependencies.</li>
+                    <li>May require a build tool/plugin to automate splitting.</li>
+                </ul>
+            </td>
+        </tr>
+    </table>
+
 </body>
 
 </html>

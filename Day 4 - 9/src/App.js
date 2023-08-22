@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Suspense, lazy } from "react";
 import ReactDOM from "react-dom/client";
 // * Default import
 import Header from "./components/Header";
@@ -11,6 +11,17 @@ import Contact from "./components/Contact";
 import RestaurantMenu from "./components/RestaurantMenu";
 import Login from "./components/Login";
 import ProfileClass from "./components/ProfileClass";
+
+const Instamart = lazy(() => import("./components/Instamart"));
+
+/*
+ * Chunking
+ * Code Splitting
+ * Dynamic Bundling
+ * Lazy Loading
+ * On Demand Loading
+ * Dynamic Import
+ */
 
 const AppLayout = () => {
   return (
@@ -38,9 +49,9 @@ const appRouter = createBrowserRouter([
         children: [
           {
             path: "profile",
-            element: <ProfileClass />
-          }
-        ]
+            element: <ProfileClass />,
+          },
+        ],
       },
       {
         path: "/contact",
@@ -49,6 +60,14 @@ const appRouter = createBrowserRouter([
       {
         path: "/restaurant/:resId",
         element: <RestaurantMenu />,
+      },
+      {
+        path: "/Instamart",
+        element: (
+          <Suspense>
+            <Instamart />
+          </Suspense>
+        ),
       },
     ],
   },

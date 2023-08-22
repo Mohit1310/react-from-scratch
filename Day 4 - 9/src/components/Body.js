@@ -2,13 +2,7 @@ import { useEffect, useState } from "react";
 import RestuarantCard from "./RestaurantCard";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
-
-function filteredData(searchInput, restaurants) {
-  const filterData = restaurants.filter((restaurant) =>
-    restaurant?.info?.name?.toLowerCase()?.includes(searchInput.toLowerCase())
-  );
-  return filterData;
-}
+import { filteredData } from "../utils/helper";
 
 //* no key (not acceptable) <<<<<<<< index key(last option) <<<<<<< unique key(best practice)
 const Body = () => {
@@ -37,8 +31,6 @@ const Body = () => {
       json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     );
   }
-
-  // console.log(useState());
 
   //* not render components (Early return)
   if (!allRestaurants) return null;
