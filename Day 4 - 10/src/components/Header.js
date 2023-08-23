@@ -9,7 +9,9 @@ import useOnline from "../utils/useOnline";
 const Title = () => {
   return (
     <Link to="/">
-      <img className="logo" src={Logo} alt="logo" />
+      <div className="w-24">
+        <img className="w-full object-cover" src={Logo} alt="logo" />
+      </div>
     </Link>
   );
 };
@@ -20,31 +22,31 @@ const Header = () => {
   const isOnline = useOnline();
 
   const handleLogout = () => {
-    navigate('/login');
+    navigate("/login");
     setIsLoggedIn(false);
-  }
+  };
 
   const handleLogin = () => {
     setIsLoggedIn(true);
-    navigate('/login');
-  }
+    navigate("/login");
+  };
 
   return (
-    <div className="header">
+    <div className="flex items-center justify-between bg-pink-50 shadow-lg p-3">
       <Title />
-      <div className="nav-items">
-        <ul>
-          <li>
+      <div className="">
+        <ul className="flex">
+          <li className="px-2">
             <Link to="/">Home</Link>
           </li>
-          <li>
+          <li className="px-2">
             <Link to="/about">About</Link>
           </li>
-          <li>
+          <li className="px-2">
             <Link to="/contact">Contact</Link>
           </li>
-          <li>Cart</li>
-          <li>
+          <li className="px-2">Cart</li>
+          <li className="px-2">
             <Link to="/instamart">Instamart</Link>
           </li>
         </ul>

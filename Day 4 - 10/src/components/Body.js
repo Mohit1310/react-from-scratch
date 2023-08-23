@@ -35,23 +35,23 @@ const Body = () => {
   //* not render components (Early return)
   if (!allRestaurants) return null;
 
-  return filteredRestaurants.length === 0 ? (
+  return allRestaurants.length === 0 ? (
     <Shimmer />
   ) : (
     <>
-      <div className="search-container">
+      <div className="flex gap-2 bg-pink-50 p-5 my-5">
         {/* 
         //! the below input will work in html but not in react because it uses "one way data binding"!!!
         */}
         <input
           type="text"
-          className="search"
+          className="focus:bg-purple-100 p-2 rounded-md ml-7 ease-in duration-75"
           placeholder="Search"
           value={searchInput}
           onChange={(e) => setSearchInput(e.target.value)}
         />
         <button
-          className="searchBtn"
+          className="searchBtn p-2 bg-purple-900 text-white rounded-md hover:bg-purple-500 ease-in duration-100"
           onClick={() => {
             // * need to filter the data
             const data = filteredData(searchInput, allRestaurants);
@@ -62,7 +62,7 @@ const Body = () => {
           Search
         </button>
       </div>
-      <div className="restuarant-lists">
+      <div className="flex flex-wrap gap-4 justify-center">
         {filteredRestaurants.length === 0 ? (
           <h1>No Restaurants found</h1>
         ) : (

@@ -957,7 +957,8 @@
     <p>Because after using <code>`<b>lazy()</b>`</code> if we directly go to the component without using
         <code><b>Suspense</b></code> then on 1st render the page will not load becasue it is a promise and it takes time
         to load but due to reacts reconcilliation algorithm react continues to load the page but doesn't find anything
-        that's why it throws the error, due to this reason we use <code><b>Suspense</b></code>.</p>
+        that's why it throws the error, due to this reason we use <code><b>Suspense</b></code>.
+    </p>
     <hr>
     <h3>Advantages and Disadvantages of using this code splitting pattern?</h3>
     <table>
@@ -1021,7 +1022,55 @@
             </td>
         </tr>
     </table>
-
+    <hr>
+    <h1>Day 10</h1>
+    <h3>Explore all the ways of writing CSS.</h3>
+    <p>There are different ways of writing CSS such as:</p>
+    <ul>
+        <li>Just CSS</li>
+        <li>SCSS / SASS</li>
+        <li>Inline CSS</li>
+        <li>Styled Components</li>
+        <li>Using Material UI, Ant.design, Bootstrap etc.</li>
+        <li>Tailwind CSS</li>
+    </ul>
+    <hr>
+    <h3>How do we configure Tailwind?</h3>
+    <p><code><pre>npx tailwind init</pre></code></p>
+    <hr>
+    <h3>In tailwind.config.js, what does all the keys mean (content, theme, extend, plugins)?</h3>
+    <p>Detailed docs are <a href="https://tailwindcss.com/docs/configuration">here</a>.</p>
+    <li>
+        The <code>`<b>content</b>`</code> section of your <code>`<b>tailwind.config.js</b>`</code> file is where you
+        configure the paths to all of your HTML templates, JavaScript components, and any other source files that
+        contain Tailwind class names.
+    </li>
+    <li>
+        The <code>`<b>theme</b>`</code> section of your <code>`<b>tailwind.config.js</b>`</code> file is where you
+        define your project's color palette, type scale, fonts, breakpoints, border radius values, and more.
+    </li>
+    <li>
+        If you'd like to preserve the default values for a theme option but also add new values, add your extensions
+        under the <code>`<b>extend</b>`</code> key in the <code>`<b>theme</b>`</code> section of your configuration
+        file.
+        <br>
+        For example, if you wanted to add an extra breakpoint but preserve the existing ones, you could extend the
+        <code>`<b>screens</b>`</code> property:
+    </li>
+    <li>
+        To get started with your first plugin, import Tailwind's <code>`<b>plugin</b>`</code> function from
+        <code>`<b>tailwindcss/plugin</b>`</code>. Then inside your <code>`<b>plugins</b>`</code> array, call the
+        imported <code>`<b>plugin</b>`</code> function with an anonymous function as the first argument.
+    </li>
+    <hr>
+    <h3>Why do we have .postcssrc file?</h3>
+    <p>
+        The <code>`<b>.postcssrc</b>`</code> file, also known as "<b>PostCSS Configuration</b>" file, is used to
+        configure and customize the behavior of PostCSS—a versatile tool for transforming and optimizing your CSS.
+        PostCSS allows you to use various plugins to process your CSS, enabling you to enhance your development workflow
+        and improve the quality of your stylesheets.
+    </p>
+    <
 </body>
 
 </html>
