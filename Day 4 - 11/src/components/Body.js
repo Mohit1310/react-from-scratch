@@ -1,8 +1,9 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import RestuarantCard from "./RestaurantCard";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
 import { filteredData } from "../utils/helper";
+import UserContext from "../utils/UserContext";
 
 //* no key (not acceptable) <<<<<<<< index key(last option) <<<<<<< unique key(best practice)
 const Body = () => {
@@ -12,6 +13,7 @@ const Body = () => {
 
   const [allRestaurants, setAllRestaurants] = useState([]);
   const [filteredRestaurants, setFilteredRestaurants] = useState([]);
+  const { user, setUser } = useContext(UserContext);
 
   useEffect(() => {
     //* Api Calls
@@ -61,13 +63,35 @@ const Body = () => {
         >
           Search
         </button>
+        <input
+          value={user.name}
+          onChange={(e) =>
+            setUser({
+              ...user,
+              name: e.target.value,
+            })
+          }
+        />
+        <input
+          type="text"
+          value={user.email}
+          onChange={(e) =>
+            setUser({
+              ...user,
+              email: e.target.value,
+            })
+          }
+        />
       </div>
       <div className="flex flex-wrap gap-4 justify-center">
         {filteredRestaurants.length === 0 ? (
           <h1>No Restaurants found</h1>
         ) : (
           filteredRestaurants.map((restaurant) => (
-            <Link to={"/restaurant/" + restaurant?.info?.id} key={restaurant?.info?.id}>
+            <Link
+              to={"/restaurant/" + restaurant?.info?.id}
+              key={restaurant?.info?.id}
+            >
               <RestuarantCard {...restaurant.info} />
             </Link>
           ))

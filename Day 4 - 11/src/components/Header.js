@@ -1,7 +1,8 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Logo from "../assets/img/logo.png";
 import useOnline from "../utils/useOnline";
+import UserContext from "../utils/UserContext";
 
 //* SPA - single page application
 //* Client side routing
@@ -20,6 +21,7 @@ const Header = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(true);
   const navigate = useNavigate();
   const isOnline = useOnline();
+  const { user } = useContext(UserContext);
 
   const handleLogout = () => {
     navigate("/login");
@@ -52,6 +54,7 @@ const Header = () => {
         </ul>
       </div>
       <h1>{isOnline ? "✅" : "🔴"}</h1>
+      <h1 className="font-bold text-rose-800">{user.name}</h1>
       {isLoggedIn ? (
         <button onClick={handleLogout}>Logout</button>
       ) : (
