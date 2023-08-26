@@ -10,9 +10,18 @@
             text-align: justify;
         }
 
+
         table {
             border-collapse: collapse;
             border: 1px solid;
+        }
+
+        .table {
+            overflow-x: auto;
+        }
+
+        .table::-webkit-scrollbar {
+            display: none;
         }
 
         th,
@@ -98,136 +107,142 @@
     </p>
     <hr />
     <h3>React vs ReactDOM</h3>
-    <table>
-        <tr>
-            <th>Aspect</th>
-            <th>React</th>
-            <th>ReactDOM</th>
-        </tr>
-        <tr>
-            <td>Purpose</td>
-            <td>JavaScript library for building user interfaces</td>
-            <td>Package for rendering React components into the DOM</td>
-        </tr>
-        <tr>
-            <td>Main Functionality</td>
-            <td>Declarative component-based UI development</td>
-            <td>Rendering React components to the actual browser DOM</td>
-        </tr>
-        <tr>
-            <td>Component Management</td>
-            <td>Manages component lifecycle, state, and rendering logic</td>
-            <td>Handles rendering components to the DOM</td>
-        </tr>
-        <tr>
-            <td>DOM Interaction</td>
-            <td>Focuses on virtual representation of UI components</td>
-            <td>Interacts with the actual browser DOM</td>
-        </tr>
-        <tr>
-            <td>Methods</td>
-            <td>Provides methods for defining components, handling state</td>
-            <td>Provides methods for rendering, server-side rendering</td>
-        </tr>
-        <tr>
-            <td>Usage</td>
-            <td>Used for building UI components and managing state</td>
-            <td>Used for rendering React components into the DOM</td>
-        </tr>
-    </table>
+    <div class="table">
+        <table>
+            <tr>
+                <th>Aspect</th>
+                <th>React</th>
+                <th>ReactDOM</th>
+            </tr>
+            <tr>
+                <td>Purpose</td>
+                <td>JavaScript library for building user interfaces</td>
+                <td>Package for rendering React components into the DOM</td>
+            </tr>
+            <tr>
+                <td>Main Functionality</td>
+                <td>Declarative component-based UI development</td>
+                <td>Rendering React components to the actual browser DOM</td>
+            </tr>
+            <tr>
+                <td>Component Management</td>
+                <td>Manages component lifecycle, state, and rendering logic</td>
+                <td>Handles rendering components to the DOM</td>
+            </tr>
+            <tr>
+                <td>DOM Interaction</td>
+                <td>Focuses on virtual representation of UI components</td>
+                <td>Interacts with the actual browser DOM</td>
+            </tr>
+            <tr>
+                <td>Methods</td>
+                <td>Provides methods for defining components, handling state</td>
+                <td>Provides methods for rendering, server-side rendering</td>
+            </tr>
+            <tr>
+                <td>Usage</td>
+                <td>Used for building UI components and managing state</td>
+                <td>Used for rendering React components into the DOM</td>
+            </tr>
+        </table>
+    </div>
     <hr />
     <h3>React.development.js vs React.production.js via CDN</h3>
-    <table>
-        <tr>
-            <th>Aspect</th>
-            <th>react.development.js</th>
-            <th>react.production.js</th>
-        </tr>
-        <tr>
-            <td>Purpose</td>
-            <td>Development environment debugging and warnings</td>
-            <td>Production-ready optimized version</td>
-        </tr>
-        <tr>
-            <td>File Size</td>
-            <td>Larger file size due to development tools and warnings</td>
-            <td>Smaller file size due to optimized code</td>
-        </tr>
-        <tr>
-            <td>Debugging</td>
-            <td>Provides detailed error messages and warnings</td>
-            <td>Minimized error messages and warnings</td>
-        </tr>
-        <tr>
-            <td>Performance</td>
-            <td>May impact performance due to debugging overhead</td>
-            <td>Optimized for performance in production</td>
-        </tr>
-        <tr>
-            <td>Usage</td>
-            <td>Preferred during development for debugging purposes</td>
-            <td>Used in production to reduce file size and improve performance</td>
-        </tr>
-    </table>
+    <div class="table">
+        <table>
+            <tr>
+                <th>Aspect</th>
+                <th>react.development.js</th>
+                <th>react.production.js</th>
+            </tr>
+            <tr>
+                <td>Purpose</td>
+                <td>Development environment debugging and warnings</td>
+                <td>Production-ready optimized version</td>
+            </tr>
+            <tr>
+                <td>File Size</td>
+                <td>Larger file size due to development tools and warnings</td>
+                <td>Smaller file size due to optimized code</td>
+            </tr>
+            <tr>
+                <td>Debugging</td>
+                <td>Provides detailed error messages and warnings</td>
+                <td>Minimized error messages and warnings</td>
+            </tr>
+            <tr>
+                <td>Performance</td>
+                <td>May impact performance due to debugging overhead</td>
+                <td>Optimized for performance in production</td>
+            </tr>
+            <tr>
+                <td>Usage</td>
+                <td>Preferred during development for debugging purposes</td>
+                <td>Used in production to reduce file size and improve performance</td>
+            </tr>
+        </table>
+    </div>
     <hr />
     <h3>async vs defer Attributes for JavaScript via CDN</h3>
-    <table>
-        <tr>
-            <th>Aspect</th>
-            <th>async Attribute</th>
-            <th>defer Attribute</th>
-        </tr>
-        <tr>
-            <td>Parsing and Execution</td>
-            <td>
-                Downloads the script asynchronously while parsing HTML, then executes
-                it immediately after downloading, potentially blocking HTML parsing
-            </td>
-            <td>
-                Downloads the script asynchronously while parsing HTML, then defers
-                execution until the HTML parsing is complete
-            </td>
-        </tr>
-        <tr>
-            <td>Execution Order</td>
-            <td>
-                Execution order may not be guaranteed, leading to potential dependency
-                issues
-            </td>
-            <td>
-                Execution order is preserved, making it suitable for scripts with
-                dependencies
-            </td>
-        </tr>
-        <tr>
-            <td>DOM Interaction</td>
-            <td>
-                May lead to scripts executing before the DOM is fully constructed
-            </td>
-            <td>Script execution waits until the DOM is fully constructed</td>
-        </tr>
-        <tr>
-            <td>Usage</td>
-            <td>
-                Use for scripts that are independent and don't rely on DOM elements or
-                other scripts
-            </td>
-            <td>
-                Use for scripts that require access to DOM elements or have
-                dependencies on other scripts
-            </td>
-        </tr>
-        <tr>
-            <td>Recommended</td>
-            <td>
-                Recommended for non-blocking scripts that can operate independently
-            </td>
-            <td>
-                Recommended for scripts that need to be executed in a specific order
-                or interact with the DOM
-            </td>
-        </tr>
-    </table>
+    <div class="table">
+        <table>
+            <tr>
+                <th>Aspect</th>
+                <th>async Attribute</th>
+                <th>defer Attribute</th>
+            </tr>
+            <tr>
+                <td>Parsing and Execution</td>
+                <td>
+                    Downloads the script asynchronously while parsing HTML, then executes
+                    it immediately after downloading, potentially blocking HTML parsing
+                </td>
+                <td>
+                    Downloads the script asynchronously while parsing HTML, then defers
+                    execution until the HTML parsing is complete
+                </td>
+            </tr>
+            <tr>
+                <td>Execution Order</td>
+                <td>
+                    Execution order may not be guaranteed, leading to potential dependency
+                    issues
+                </td>
+                <td>
+                    Execution order is preserved, making it suitable for scripts with
+                    dependencies
+                </td>
+            </tr>
+            <tr>
+                <td>DOM Interaction</td>
+                <td>
+                    May lead to scripts executing before the DOM is fully constructed
+                </td>
+                <td>Script execution waits until the DOM is fully constructed</td>
+            </tr>
+            <tr>
+                <td>Usage</td>
+                <td>
+                    Use for scripts that are independent and don't rely on DOM elements or
+                    other scripts
+                </td>
+                <td>
+                    Use for scripts that require access to DOM elements or have
+                    dependencies on other scripts
+                </td>
+            </tr>
+            <tr>
+                <td>Recommended</td>
+                <td>
+                    Recommended for non-blocking scripts that can operate independently
+                </td>
+                <td>
+                    Recommended for scripts that need to be executed in a specific order
+                    or interact with the DOM
+                </td>
+            </tr>
+        </table>
+    </div>
     <hr>
     <h1>Day 2</h1>
     <h3>Why is React fast?</h3>
@@ -275,27 +290,29 @@
         parcel bundler we use <b>npx parcel index.html</b>.</p>
     <hr>
     <h3>What is difference between `dependencies` vs `devDependencies`?</h3>
-    <table>
-        <thead>
-            <tr>
-                <th>Field</th>
-                <th>Purpose</th>
-                <th>Usage</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td><code>dependencies</code></td>
-                <td>Main Dependencies</td>
-                <td>Required for the application to run in production.</td>
-            </tr>
-            <tr>
-                <td><code>devDependencies</code></td>
-                <td>Development Dependencies</td>
-                <td>Used during development, testing, and building, but not needed for production.</td>
-            </tr>
-        </tbody>
-    </table>
+    <div class="table">
+        <table>
+            <thead>
+                <tr>
+                    <th>Field</th>
+                    <th>Purpose</th>
+                    <th>Usage</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><code>dependencies</code></td>
+                    <td>Main Dependencies</td>
+                    <td>Required for the application to run in production.</td>
+                </tr>
+                <tr>
+                    <td><code>devDependencies</code></td>
+                    <td>Development Dependencies</td>
+                    <td>Used during development, testing, and building, but not needed for production.</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
     <hr>
     <h3>What is Tree Shaking?</h3>
     <p>Simply means removal of <b>dead/unused code</b>.</p>
@@ -359,27 +376,29 @@
         organized and efficient version control system.</p>
     <hr>
     <h3>What is the difference between <code>package.json</code> and <code>package-lock.json</code></h3>
-    <table>
-        <thead>
-            <tr>
-                <th>File</th>
-                <th>Purpose</th>
-                <th>Usage</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td><code>package.json</code></td>
-                <td>Dependency Declaration</td>
-                <td>Specifies the project's dependencies, scripts, metadata, and configuration.</td>
-            </tr>
-            <tr>
-                <td><code>package-lock.json</code></td>
-                <td>Dependency Locking</td>
-                <td>Locks dependency versions and resolves them to ensure consistent installs.</td>
-            </tr>
-        </tbody>
-    </table>
+    <div class="table">
+        <table>
+            <thead>
+                <tr>
+                    <th>File</th>
+                    <th>Purpose</th>
+                    <th>Usage</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><code>package.json</code></td>
+                    <td>Dependency Declaration</td>
+                    <td>Specifies the project's dependencies, scripts, metadata, and configuration.</td>
+                </tr>
+                <tr>
+                    <td><code>package-lock.json</code></td>
+                    <td>Dependency Locking</td>
+                    <td>Locks dependency versions and resolves them to ensure consistent installs.</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
     <p>In summary, while both <code>package.json</code> and <code>package-lock.json</code> are integral parts of Node.js
         projects managed with npm, they serve different purposes. The <code>package.json</code> file defines project
         metadata, scripts, and dependencies, while the <code>package-lock.json</code> file ensures that dependency
@@ -521,18 +540,19 @@
         providing a declarative and expressive syntax.
     </p>
     <p>Here's an example of a simple React component written with and without :</p>
-    <table>
-        <tr>
-            <th>
-                <h4>With :</h4>
-            </th>
-            <th>
-                <h4>Without :</h4>
-            </th>
-        </tr>
-        <tbody>
-            <td>
-                <code>
+    <div class="table">
+        <table>
+            <tr>
+                <th>
+                    <h4>With :</h4>
+                </th>
+                <th>
+                    <h4>Without :</h4>
+                </th>
+            </tr>
+            <tbody>
+                <td>
+                    <code>
                 import React from 'react';<br><br>
                 const MyComponent = () => {
                     <p class="indentation">return (</p>
@@ -545,9 +565,9 @@
                 <br>
                 export default MyComponent;
                 </code>
-            </td>
-            <td>
-                <code>
+                </td>
+                <td>
+                    <code>
                     import React from 'react';<br><br>
                     const MyComponent = () => {<br>
                     <p class="indentation">return React.createElement('div', null,</p>
@@ -558,9 +578,10 @@
                 <br>
                 export default MyComponent;
                 </code>
-            </td>
-        </tbody>
-    </table>
+                </td>
+            </tbody>
+        </table>
+    </div>
     <hr>
     <h3>Is ES6 mandatory for React?</h3>
     <p>
@@ -645,53 +666,55 @@
     <hr>
     <h1>Day 5</h1>
     <h3>What is the difference between "Named" Export, "Default" export and "* as" export?</h3>
-    <table>
-        <tr>
-            <th>Export Type</th>
-            <th>Usage</th>
-            <th>Import Syntax</th>
-            <th>Example</th>
-        </tr>
-        <tr>
-            <td>Named Export</td>
-            <td>Export multiple values from a module with distinct names.</td>
-            <td><code>import &#123; valueName &#125; from 'modulePath';</code></td>
-            <td>
-                <pre><code>    // Module: myModule.js
+    <div class="table">
+        <table>
+            <tr>
+                <th>Export Type</th>
+                <th>Usage</th>
+                <th>Import Syntax</th>
+                <th>Example</th>
+            </tr>
+            <tr>
+                <td>Named Export</td>
+                <td>Export multiple values from a module with distinct names.</td>
+                <td><code>import &#123; valueName &#125; from 'modulePath';</code></td>
+                <td>
+                    <pre><code>    // Module: myModule.js
     export const name = 'John';
     export const age = 30;
 
     // Import in another file
     import &#123; name, age &#125; from './myModule';</code></pre>
-            </td>
-        </tr>
-        <tr>
-            <td>Default Export</td>
-            <td>Export a single value as the default export of a module.</td>
-            <td><code>import valueName from 'modulePath';</code></td>
-            <td>
-                <pre><code>    // Module: myModule.js
+                </td>
+            </tr>
+            <tr>
+                <td>Default Export</td>
+                <td>Export a single value as the default export of a module.</td>
+                <td><code>import valueName from 'modulePath';</code></td>
+                <td>
+                    <pre><code>    // Module: myModule.js
     const greeting = 'Hello';
     export default greeting;
 
     // Import in another file
     import greeting from './myModule';</code></pre>
-            </td>
-        </tr>
-        <tr>
-            <td>Namespace Export ("* as" Export)</td>
-            <td>Export all values from a module as properties of an object.</td>
-            <td><code>import * as moduleName from 'modulePath';</code></td>
-            <td>
-                <pre><code>    // Module: myModule.js
+                </td>
+            </tr>
+            <tr>
+                <td>Namespace Export ("* as" Export)</td>
+                <td>Export all values from a module as properties of an object.</td>
+                <td><code>import * as moduleName from 'modulePath';</code></td>
+                <td>
+                    <pre><code>    // Module: myModule.js
     export const name = 'Alice';
     export const age = 25;
 
     // Import in another file
     import * as myModule from './myModule';</code></pre>
-            </td>
-        </tr>
-    </table>
+                </td>
+            </tr>
+        </table>
+    </div>
     <hr>
     <h3>What is the importance of config.js/constants.js ?</h3>
     <p>
@@ -760,58 +783,60 @@
     </ul>
     <hr>
     <h3>What is the difference between Monolith and Microservice?</h3>
-    <table>
-        <tr>
-            <th>Aspect</th>
-            <th>Monolithic Architecture</th>
-            <th>Microservices Architecture</th>
-        </tr>
-        <tr>
-            <td>Structure</td>
-            <td>Single codebase with tightly integrated components.</td>
-            <td>Decomposed into small, loosely coupled services.</td>
-        </tr>
-        <tr>
-            <td>Deployment</td>
-            <td>Deployed as a single unit.</td>
-            <td>Each service can be deployed independently.</td>
-        </tr>
-        <tr>
-            <td>Communication</td>
-            <td>Components communicate directly within the application.</td>
-            <td>Services communicate over APIs, often using lightweight protocols.</td>
-        </tr>
-        <tr>
-            <td>Scalability</td>
-            <td>Scalability can be challenging due to all components being scaled together.</td>
-            <td>Services can be scaled independently based on demand.</td>
-        </tr>
-        <tr>
-            <td>Technology Stack</td>
-            <td>Uses a single technology stack for the entire application.</td>
-            <td>Allows different services to use different technology stacks.</td>
-        </tr>
-        <tr>
-            <td>Development</td>
-            <td>Tightly integrated development of all components.</td>
-            <td>Services can be developed, deployed, and maintained independently.</td>
-        </tr>
-        <tr>
-            <td>Maintenance</td>
-            <td>Maintenance and updates can be complex due to the entire application being affected.</td>
-            <td>Maintenance is easier as each service can be updated individually.</td>
-        </tr>
-        <tr>
-            <td>Complexity</td>
-            <td>Can become complex and unwieldy as the application grows.</td>
-            <td>Allows for better management of complexity through smaller, focused services.</td>
-        </tr>
-        <tr>
-            <td>Risk</td>
-            <td>Changes in one part of the application can impact other parts.</td>
-            <td>Changes in one service have limited impact on others due to loose coupling.</td>
-        </tr>
-    </table>
+    <div class="table">
+        <table>
+            <tr>
+                <th>Aspect</th>
+                <th>Monolithic Architecture</th>
+                <th>Microservices Architecture</th>
+            </tr>
+            <tr>
+                <td>Structure</td>
+                <td>Single codebase with tightly integrated components.</td>
+                <td>Decomposed into small, loosely coupled services.</td>
+            </tr>
+            <tr>
+                <td>Deployment</td>
+                <td>Deployed as a single unit.</td>
+                <td>Each service can be deployed independently.</td>
+            </tr>
+            <tr>
+                <td>Communication</td>
+                <td>Components communicate directly within the application.</td>
+                <td>Services communicate over APIs, often using lightweight protocols.</td>
+            </tr>
+            <tr>
+                <td>Scalability</td>
+                <td>Scalability can be challenging due to all components being scaled together.</td>
+                <td>Services can be scaled independently based on demand.</td>
+            </tr>
+            <tr>
+                <td>Technology Stack</td>
+                <td>Uses a single technology stack for the entire application.</td>
+                <td>Allows different services to use different technology stacks.</td>
+            </tr>
+            <tr>
+                <td>Development</td>
+                <td>Tightly integrated development of all components.</td>
+                <td>Services can be developed, deployed, and maintained independently.</td>
+            </tr>
+            <tr>
+                <td>Maintenance</td>
+                <td>Maintenance and updates can be complex due to the entire application being affected.</td>
+                <td>Maintenance is easier as each service can be updated individually.</td>
+            </tr>
+            <tr>
+                <td>Complexity</td>
+                <td>Can become complex and unwieldy as the application grows.</td>
+                <td>Allows for better management of complexity through smaller, focused services.</td>
+            </tr>
+            <tr>
+                <td>Risk</td>
+                <td>Changes in one part of the application can impact other parts.</td>
+                <td>Changes in one service have limited impact on others due to loose coupling.</td>
+            </tr>
+        </table>
+    </div>
     <hr>
     <h3>Why do we need a useEffect Hook?</h3>
     <p>
@@ -875,43 +900,47 @@
     </p>
     <hr>
     <h3>What is the difference between JS expression and JS statement</h3>
-    <table>
-        <tr>
-            <th>Aspect</th>
-            <th>JavaScript Expression</th>
-            <th>JavaScript Statement</th>
-        </tr>
-        <tr>
-            <td>Definition</td>
-            <td>An expression is a piece of code that produces a value.</td>
-            <td>A statement is a complete line of code that performs an action.</td>
-        </tr>
-        <tr>
-            <td>Example</td>
-            <td>
-                <pre><code>5 + 3</code></pre>
-            </td>
-            <td>
-                <pre><code>console.log('Hello, World!');</code></pre>
-            </td>
-        </tr>
-        <tr>
-            <td>Value</td>
-            <td>Expressions have a value that can be assigned or used.</td>
-            <td>Statements do not have a value to assign or use.</td>
-        </tr>
-        <tr>
-            <td>Usage</td>
-            <td>Can be used in assignments, function arguments, etc.</td>
-            <td>Used for control flow (if, for, while), declarations (var, let, const), and actions (function calls).
-            </td>
-        </tr>
-        <tr>
-            <td>Side Effects</td>
-            <td>Expressions can have side effects, but they are typically minimal.</td>
-            <td>Statements often have more noticeable side effects, like changing variables or performing actions.</td>
-        </tr>
-    </table>
+    <div class="table">
+        <table>
+            <tr>
+                <th>Aspect</th>
+                <th>JavaScript Expression</th>
+                <th>JavaScript Statement</th>
+            </tr>
+            <tr>
+                <td>Definition</td>
+                <td>An expression is a piece of code that produces a value.</td>
+                <td>A statement is a complete line of code that performs an action.</td>
+            </tr>
+            <tr>
+                <td>Example</td>
+                <td>
+                    <pre><code>5 + 3</code></pre>
+                </td>
+                <td>
+                    <pre><code>console.log('Hello, World!');</code></pre>
+                </td>
+            </tr>
+            <tr>
+                <td>Value</td>
+                <td>Expressions have a value that can be assigned or used.</td>
+                <td>Statements do not have a value to assign or use.</td>
+            </tr>
+            <tr>
+                <td>Usage</td>
+                <td>Can be used in assignments, function arguments, etc.</td>
+                <td>Used for control flow (if, for, while), declarations (var, let, const), and actions (function
+                    calls).
+                </td>
+            </tr>
+            <tr>
+                <td>Side Effects</td>
+                <td>Expressions can have side effects, but they are typically minimal.</td>
+                <td>Statements often have more noticeable side effects, like changing variables or performing actions.
+                </td>
+            </tr>
+        </table>
+    </div>
     <hr>
     <h3>What is Conditional Rendering, explain with a code example ?</h3>
     <p>
@@ -1175,55 +1204,62 @@
     </p>
     <hr>
     <h3>What is difference between Client Side Routing and Server Side Routing?</h3>
-    <table>
-        <tr>
-            <th>Aspect</th>
-            <th>Client-Side Routing</th>
-            <th>Server-Side Routing</th>
-        </tr>
-        <tr>
-            <td>Definition</td>
-            <td>Routing is handled within the browser using JavaScript. Navigation triggers updates to the DOM without
-                full page reloads.</td>
-            <td>Routing is managed by the server. Each navigation request typically involves a full page reload.</td>
-        </tr>
-        <tr>
-            <td>Page Load</td>
-            <td>Initial page load retrieves a basic HTML shell, and additional content is fetched and rendered using
-                JavaScript.</td>
-            <td>Each navigation request triggers a complete page load from the server with the necessary content.</td>
-        </tr>
-        <tr>
-            <td>Performance</td>
-            <td>Improves performance by reducing server requests. Can lead to faster transitions between pages once
-                initial load is complete.</td>
-            <td>May have slower navigation due to full page reloads, especially on larger websites.</td>
-        </tr>
-        <tr>
-            <td>Browser History</td>
-            <td>Uses client-side routing libraries to manage browser history and maintain the appearance of multiple
-                pages.</td>
-            <td>Each navigation request creates a new entry in the browser history, allowing for easy back/forward
-                navigation.</td>
-        </tr>
-        <tr>
-            <td>SEO</td>
-            <td>Initially problematic for SEO due to search engines not executing JavaScript. Can be mitigated using
-                server-side rendering (SSR) or pre-rendering.</td>
-            <td>Generally more SEO-friendly since content is fully available to search engine crawlers during initial
-                page load.</td>
-        </tr>
-        <tr>
-            <td>URL Structure</td>
-            <td>Uses hash-based URLs or HTML5 History API for clean URLs without full page reloads.</td>
-            <td>Uses traditional URLs that map directly to server resources.</td>
-        </tr>
-        <tr>
-            <td>Interactivity</td>
-            <td>Provides smoother user experience with dynamic transitions and animations between pages.</td>
-            <td>May require additional interactivity scripting to enhance user experience during full page reloads.</td>
-        </tr>
-    </table>
+    <div class="table">
+        <table>
+            <tr>
+                <th>Aspect</th>
+                <th>Client-Side Routing</th>
+                <th>Server-Side Routing</th>
+            </tr>
+            <tr>
+                <td>Definition</td>
+                <td>Routing is handled within the browser using JavaScript. Navigation triggers updates to the DOM
+                    without
+                    full page reloads.</td>
+                <td>Routing is managed by the server. Each navigation request typically involves a full page reload.
+                </td>
+            </tr>
+            <tr>
+                <td>Page Load</td>
+                <td>Initial page load retrieves a basic HTML shell, and additional content is fetched and rendered using
+                    JavaScript.</td>
+                <td>Each navigation request triggers a complete page load from the server with the necessary content.
+                </td>
+            </tr>
+            <tr>
+                <td>Performance</td>
+                <td>Improves performance by reducing server requests. Can lead to faster transitions between pages once
+                    initial load is complete.</td>
+                <td>May have slower navigation due to full page reloads, especially on larger websites.</td>
+            </tr>
+            <tr>
+                <td>Browser History</td>
+                <td>Uses client-side routing libraries to manage browser history and maintain the appearance of multiple
+                    pages.</td>
+                <td>Each navigation request creates a new entry in the browser history, allowing for easy back/forward
+                    navigation.</td>
+            </tr>
+            <tr>
+                <td>SEO</td>
+                <td>Initially problematic for SEO due to search engines not executing JavaScript. Can be mitigated using
+                    server-side rendering (SSR) or pre-rendering.</td>
+                <td>Generally more SEO-friendly since content is fully available to search engine crawlers during
+                    initial
+                    page load.</td>
+            </tr>
+            <tr>
+                <td>URL Structure</td>
+                <td>Uses hash-based URLs or HTML5 History API for clean URLs without full page reloads.</td>
+                <td>Uses traditional URLs that map directly to server resources.</td>
+            </tr>
+            <tr>
+                <td>Interactivity</td>
+                <td>Provides smoother user experience with dynamic transitions and animations between pages.</td>
+                <td>May require additional interactivity scripting to enhance user experience during full page reloads.
+                </td>
+            </tr>
+        </table>
+    </div>
     <hr>
     <h1>Day 8</h1>
     <h3>How do you create Nested Routes react-router-dom cofiguration?</h3>
@@ -1425,67 +1461,69 @@
     </p>
     <hr>
     <h3>Advantages and Disadvantages of using this code splitting pattern?</h3>
-    <table>
-        <tr>
-            <th>Code Splitting Pattern</th>
-            <th>Advantages</th>
-            <th>Disadvantages</th>
-        </tr>
+    <div class="table">
+        <table>
+            <tr>
+                <th>Code Splitting Pattern</th>
+                <th>Advantages</th>
+                <th>Disadvantages</th>
+            </tr>
 
-        <tr>
-            <td>Lazy Loading</td>
-            <td>
-                <ul>
-                    <li>Improved initial page load time.</li>
-                    <li>Faster perceived performance as critical code loads first.</li>
-                    <li>Reduced resource wastage for users who don't access all features.</li>
-                </ul>
-            </td>
-            <td>
-                <ul>
-                    <li>Potential for slower subsequent loads due to network requests.</li>
-                    <li>Complexity in managing dependencies and ensuring proper execution order.</li>
-                    <li>May require manual optimization to avoid excessive splitting.</li>
-                </ul>
-            </td>
-        </tr>
+            <tr>
+                <td>Lazy Loading</td>
+                <td>
+                    <ul>
+                        <li>Improved initial page load time.</li>
+                        <li>Faster perceived performance as critical code loads first.</li>
+                        <li>Reduced resource wastage for users who don't access all features.</li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li>Potential for slower subsequent loads due to network requests.</li>
+                        <li>Complexity in managing dependencies and ensuring proper execution order.</li>
+                        <li>May require manual optimization to avoid excessive splitting.</li>
+                    </ul>
+                </td>
+            </tr>
 
-        <tr>
-            <td>Route-based Splitting</td>
-            <td>
-                <ul>
-                    <li>Optimized loading for specific routes, enhancing user experience.</li>
-                    <li>Allows prioritizing critical paths for faster loading.</li>
-                    <li>Enables better control over resource loading.</li>
-                </ul>
-            </td>
-            <td>
-                <ul>
-                    <li>Potential for over-segmentation, leading to increased network requests.</li>
-                    <li>Requires careful planning and maintenance of route dependencies.</li>
-                    <li>Complexity in handling shared components and state across routes.</li>
-                </ul>
-            </td>
-        </tr>
+            <tr>
+                <td>Route-based Splitting</td>
+                <td>
+                    <ul>
+                        <li>Optimized loading for specific routes, enhancing user experience.</li>
+                        <li>Allows prioritizing critical paths for faster loading.</li>
+                        <li>Enables better control over resource loading.</li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li>Potential for over-segmentation, leading to increased network requests.</li>
+                        <li>Requires careful planning and maintenance of route dependencies.</li>
+                        <li>Complexity in handling shared components and state across routes.</li>
+                    </ul>
+                </td>
+            </tr>
 
-        <tr>
-            <td>Component-level Splitting</td>
-            <td>
-                <ul>
-                    <li>Granular control over resource loading for specific components.</li>
-                    <li>Improved performance by loading only what's needed.</li>
-                    <li>Enhanced modularity and easier maintenance.</li>
-                </ul>
-            </td>
-            <td>
-                <ul>
-                    <li>Potential for excessive splitting leading to increased HTTP requests.</li>
-                    <li>Complexity in managing inter-component dependencies.</li>
-                    <li>May require a build tool/plugin to automate splitting.</li>
-                </ul>
-            </td>
-        </tr>
-    </table>
+            <tr>
+                <td>Component-level Splitting</td>
+                <td>
+                    <ul>
+                        <li>Granular control over resource loading for specific components.</li>
+                        <li>Improved performance by loading only what's needed.</li>
+                        <li>Enhanced modularity and easier maintenance.</li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li>Potential for excessive splitting leading to increased HTTP requests.</li>
+                        <li>Complexity in managing inter-component dependencies.</li>
+                        <li>May require a build tool/plugin to automate splitting.</li>
+                    </ul>
+                </td>
+            </tr>
+        </table>
+    </div>
     <hr>
     <h1>Day 10</h1>
     <h3>Explore all the ways of writing CSS.</h3>
@@ -1558,6 +1596,134 @@
     <hr>
     <h3>If you don't pass a value to the provider does it take the default value?</h3>
     <p>No, it gives us the warning that the `<code><b>value</b></code>` prop is required.</p>
+    <hr>
+    <h1>Day 12</h1>
+    <h3>useContext vs Redux</h3>
+    <div class="table">
+        <table>
+            <tr>
+                <th>Aspect</th>
+                <th>useContext</th>
+                <th>Redux</th>
+            </tr>
+            <tr>
+                <td>State Management</td>
+                <td>Local state management for a component or subtree.</td>
+                <td>Global state management across the entire app.</td>
+            </tr>
+            <tr>
+                <td>Complexity</td>
+                <td>Simple and lightweight for small-scale apps.</td>
+                <td>More boilerplate, suitable for larger and complex apps.</td>
+            </tr>
+            <tr>
+                <td>Setup</td>
+                <td>Requires fewer dependencies, built into React.</td>
+                <td>Requires additional package (redux), middleware, and setup.</td>
+            </tr>
+            <tr>
+                <td>Communication</td>
+                <td>Efficient for communication within a parent-child hierarchy.</td>
+                <td>Allows communication between distant components.</td>
+            </tr>
+            <tr>
+                <td>Performance</td>
+                <td>Optimized for local updates within the component.</td>
+                <td>Centralized updates can impact performance if not managed well.</td>
+            </tr>
+            <tr>
+                <td>Scaling</td>
+                <td>Can become complex to manage in larger apps.</td>
+                <td>Designed for scalability and maintaining large apps.</td>
+            </tr>
+            <tr>
+                <td>DevTools</td>
+                <td>Uses React DevTools for inspection.</td>
+                <td>Offers specialized Redux DevTools for time-travel debugging.</td>
+            </tr>
+        </table>
+    </div>
+    <hr>
+    <h3>Advantage of using Redux Toolkit over Redux.</h3>
+    <ol>
+        <li><b>Simplified Syntax:</b> Cleaner and shorter code with less boilerplate.</li>
+        <li><b>Built-in Immutability:</b> Automatically handles immutability to prevent accidental state mutations.</li>
+        <li><b>Reduced Configuration:</b> Includes common setup, middleware, and dev tools by default.</li>
+        <li><b>Efficient Performance:</b> Optimized for performance with optimized reducer logic and memoization.</li>
+        <li><b>Modularity:</b> Encourages structured code with standard practices and powerful utilities.</li>
+    </ol>
+    <hr>
+    <h3>Explain Dispatcher.</h3>
+    <ul>
+        <li>
+            Think of a "dispatcher" like a mail delivery person for your app's state. In React, components often need to
+            talk to each other and share information. The dispatcher helps with this.
+        </li>
+        <li>
+            Imagine you have different parts of your app (like different rooms) that need to send and receive messages.
+            The dispatcher is like the person who takes messages from one room and delivers them to the right places.
+        </li>
+        <li>
+            In your app, when something changes in one part (a component), the dispatcher makes sure that other parts
+            (other components) are notified and can update themselves based on the new information.
+        </li>
+        <li>
+            So, in simple terms, the dispatcher helps different parts of your app communicate and stay in sync, just
+            like a mail delivery person helping different rooms share important news!
+        </li>
+    </ul>
+    <hr>
+    <h3>Explain Reducer.</h3>
+    <ul>
+        <li>
+            Imagine a "reducer" as a smart organizer that listens to the messages delivered by the dispatcher and
+            decides
+            how things should change.
+        </li>
+        <li>
+            In your app, when a component wants to change something (like updating a counter or adding an item), it
+            sends a
+            message to the reducer. The reducer is like the smart organizer that looks at the message and decides what
+            needs
+            to be done based on the message's content.
+        </li>
+        <li>
+            It takes the current situation (the state) and the message (action), then figures out the new situation
+            (updated
+            state). Just like how an organizer takes a messy room and a cleaning plan, and turns it into a clean room.
+        </li>
+        <li>
+            So, in simple terms, a reducer is like an organizer that knows how to handle changes in your app's data and
+            keeps everything tidy!
+        </li>
+    </ul>
+    <h3>Explain slice.</h3>
+    <ul>
+        <li>A <strong>slice</strong> is a part of your app's state.</li>
+        <li>It's like a piece of a puzzle.</li>
+        <li>The <strong>reducer</strong> knows how to handle changes in this slice.</li>
+        <li>Each slice has its own logic and data.</li>
+        <li>It helps keep your app organized and manageable.</li>
+    </ul>
+    <h3>Explain Selector.</h3>
+    <ul>
+        <li>A <strong>selector</strong> is like a detective for your app's state.</li>
+        <li>It helps you get specific information from the big state.</li>
+        <li>Just like asking a detective to find a clue in a case file.</li>
+        <li><strong>Selectors</strong> make it easy to grab data you need.</li>
+        <li>They keep your code organized and efficient.</li>
+    </ul>
+    <h3>Explain createSlice and the configuration it takes.</h3>
+    <ul>
+        <li><code>createSlice</code> creates a <strong>slice</strong> of the Redux store.</li>
+        <li>It bundles a <strong>reducer</strong> and <strong>action creators</strong> together.</li>
+        <li>Simplifies state management by handling common tasks.</li>
+        <li><code>name</code>: A unique name for the slice (string).</li>
+        <li><code>initialState</code>: The initial state for the slice (object).</li>
+        <li><code>reducers</code>: An object with functions to handle state changes.</li>
+        <li><code>extraReducers</code>: Optional, for handling actions from other slices.</li>
+        <li>Returns an object with <strong>reducer</strong> and <strong>actions</strong> properties.</li>
+    </ul>
 </body>
 
 </html>
