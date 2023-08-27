@@ -29,7 +29,7 @@ const RestaurantMenu = () => {
           src={IMG_CDN_URL + restaurantCardApi.cloudinaryImageId}
           alt="restaurant img"
           className="w-52 h-52 object-cover"
-          />
+        />
         <h2>{restaurantCardApi.name}</h2>
         <h3>{restaurantCardApi.areaName}</h3>
         <h3>{restaurantCardApi.city}</h3>
@@ -38,12 +38,17 @@ const RestaurantMenu = () => {
       </div>
       <div>
         <h1 className="font-bold text-2xl">Menu</h1>
-        <ul className="flex flex-wrap gap-7">
+        <ul className="flex flex-wrap gap-7" data-testid="menu">
           {Object.values(api).map((item) => (
             <li key={item?.card?.info?.id} className="m-1 w-52 flex flex-col">
-              <img src={IMG_CDN_URL + item?.card?.info?.imageId} alt="menu item image" className="w-full h-56 object-cover"/>
+              <img
+                src={IMG_CDN_URL + item?.card?.info?.imageId}
+                alt="menu item image"
+                className="w-full h-56 object-cover"
+              />
               {item?.card?.info?.name}
               <button
+                data-testid="addBtn"
                 className="p-2 w-16  bg-green-100 hover:bg-green-400 transition-colors ease-in self-center"
                 onClick={() => addFoodItem(item)}
               >

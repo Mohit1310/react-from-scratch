@@ -4,6 +4,7 @@ import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
 import { filteredData } from "../utils/helper";
 import UserContext from "../utils/UserContext";
+import { act } from "@testing-library/react";
 
 //* no key (not acceptable) <<<<<<<< index key(last option) <<<<<<< unique key(best practice)
 const Body = () => {
@@ -26,12 +27,16 @@ const Body = () => {
     );
     const json = await data.json();
     //* Optional Chaining
-    setAllRestaurants(
-      json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants
-    );
-    setFilteredRestaurants(
-      json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants
-    );
+    await act(async () => {
+      setAllRestaurants(
+        json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle
+          ?.restaurants
+      );
+      setFilteredRestaurants(
+        json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle
+          ?.restaurants
+      );
+    });
   }
 
   //* not render components (Early return)
@@ -46,6 +51,7 @@ const Body = () => {
         //! the below input will work in html but not in react because it uses "one way data binding"!!!
         */}
         <input
+          data-testid="search-input"
           type="text"
           className="focus:bg-purple-100 p-2 rounded-md ml-7 ease-in duration-75"
           placeholder="Search"
@@ -53,6 +59,7 @@ const Body = () => {
           onChange={(e) => setSearchInput(e.target.value)}
         />
         <button
+          data-testid="search-btn"
           className="searchBtn p-2 bg-purple-900 text-white rounded-md hover:bg-purple-500 ease-in duration-100"
           onClick={() => {
             // * need to filter the data
@@ -83,7 +90,10 @@ const Body = () => {
           }
         />
       </div>
-      <div className="flex flex-wrap gap-4 justify-center">
+      <div
+        className="flex flex-wrap gap-4 justify-center"
+        data-testid="restaurantList"
+      >
         {filteredRestaurants.length === 0 ? (
           <h1>No Restaurants found</h1>
         ) : (

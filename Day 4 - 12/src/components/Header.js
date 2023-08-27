@@ -12,7 +12,7 @@ const Title = () => {
   return (
     <Link to="/">
       <div className="w-24">
-        <img className="w-full object-cover" src={Logo} alt="logo" />
+        <img data-testid="logo" className="w-full object-cover" src={Logo} alt="logo" />
       </div>
     </Link>
   );
@@ -52,11 +52,11 @@ const Header = () => {
             <Link to="/instamart">Instamart</Link>
           </li>
           <li className="px-2">
-            <Link to="/cart">Cart {cartItems.length}-items</Link>
+            <Link to="/cart" data-testid="cart">Cart {cartItems.length}-items</Link>
           </li>
         </ul>
       </div>
-      <h1>{isOnline ? "✅" : "🔴"}</h1>
+      <span data-testid="online-status">{isOnline ? "✅" : "🔴"}</span>
       <h1 className="font-bold text-rose-800">{user.name}</h1>
       {isLoggedIn ? (
         <button onClick={() => setIsLoggedIn(false)}>Logout</button>
