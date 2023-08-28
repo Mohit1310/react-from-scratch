@@ -1307,7 +1307,7 @@
     <hr>
     <h3>What is the order of life cycle method calls in Class Based Components?</h3>
     <div>
-        <img src="./src/assets/img/react-lifecycle.png" alt="react-lifecycle-diagram" width="100%"
+        <img src="react-lifecycle.png" alt="react-lifecycle-diagram" width="100%"
             title="Credit: https://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/" />
     </div>
     <hr>
@@ -1697,6 +1697,7 @@
             keeps everything tidy!
         </li>
     </ul>
+    <hr>
     <h3>Explain slice.</h3>
     <ul>
         <li>A <strong>slice</strong> is a part of your app's state.</li>
@@ -1705,6 +1706,7 @@
         <li>Each slice has its own logic and data.</li>
         <li>It helps keep your app organized and manageable.</li>
     </ul>
+    <hr>
     <h3>Explain Selector.</h3>
     <ul>
         <li>A <strong>selector</strong> is like a detective for your app's state.</li>
@@ -1713,6 +1715,7 @@
         <li><strong>Selectors</strong> make it easy to grab data you need.</li>
         <li>They keep your code organized and efficient.</li>
     </ul>
+    <hr>
     <h3>Explain createSlice and the configuration it takes.</h3>
     <ul>
         <li><code>createSlice</code> creates a <strong>slice</strong> of the Redux store.</li>
@@ -1724,6 +1727,147 @@
         <li><code>extraReducers</code>: Optional, for handling actions from other slices.</li>
         <li>Returns an object with <strong>reducer</strong> and <strong>actions</strong> properties.</li>
     </ul>
+    <hr>
+    <h1>Day 13</h1>
+    <h3>Difference between <code>`JavaScript`</code> object and <code>`json`</code> object</h3>
+    <div class="table">
+        <table>
+            <tr>
+                <th>Aspect</th>
+                <th>JavaScript Object</th>
+                <th>JSON</th>
+            </tr>
+            <tr>
+                <td>Format</td>
+                <td>Created using JavaScript syntax.</td>
+                <td>Strict format following JSON rules.</td>
+            </tr>
+            <tr>
+                <td>Keys</td>
+                <td>Keys can be strings, numbers, symbols, etc.</td>
+                <td>Keys must be strings enclosed in double quotes.</td>
+            </tr>
+            <tr>
+                <td>Values</td>
+                <td>Values can be any valid JavaScript data type.</td>
+                <td>Values can be strings, numbers, objects, arrays, booleans, or null.</td>
+            </tr>
+            <tr>
+                <td>Comments</td>
+                <td>Allows comments (not valid JSON).</td>
+                <td>No support for comments.</td>
+            </tr>
+            <tr>
+                <td>Usage</td>
+                <td>Used directly in JavaScript code.</td>
+                <td>Used for data interchange between systems.</td>
+            </tr>
+            <tr>
+                <td>Example</td>
+                <td>
+                    <code><pre>
+    // JavaScript Object example
+    const jsObject = {
+        name: "John",
+        age: 30,
+        isStudent: false
+    };</pre>
+                </code>
+                </td>
+                <td>
+                    <code><pre>
+    // JSON example
+    const jsonString = {
+        "name": "John", 
+        "age": 30, 
+        "isStudent": false
+    };</pre>
+                </code>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <hr>
+    <h3>What are different types of testing?</h3>
+    <ul>
+        <li>Unit Testing</li>
+        <li>Integration Testing</li>
+        <li>Component Testing</li>
+        <li>Snapshot Testing</li>
+        <li>Functional Testing</li>
+        <li>End-to-End(E2E) Testing</li>
+        <li>And many more</li>
+    </ul>
+    <hr>
+    <h3>What is Enzyme?</h3>
+    <p>
+        It is a popular javascript testing library specifically designed for testing React components, which was used
+        for versions earlier than React 16. It has several advantages for testing React application:
+    <ol>
+        <li><b>Shallow Rendering</b></li>
+        <li><b>Component Manipulation</b></li>
+        <li><b>Snapshot testing</b></li>
+        <li><b>Dom Inspection</b></li>
+        <li>Etc.</li>
+
+    </ol>
+    </p>
+    <hr>
+    <h3>Enzyme vs React Testing Library.</h3>
+    <div class="table">
+        <table>
+            <tr>
+                <th>Aspect</th>
+                <th>Enzyme</th>
+                <th>React Testing Library</th>
+            </tr>
+            <tr>
+                <td>Philosophy</td>
+                <td>Component-centric, focuses on component behavior.</td>
+                <td>User-centric, focuses on how users interact with components.</td>
+            </tr>
+            <tr>
+                <td>Testing Approach</td>
+                <td>Supports shallow, mount, and static rendering.</td>
+                <td>Encourages component interactions similar to user behavior.</td>
+            </tr>
+            <tr>
+                <td>DOM Interaction</td>
+                <td>Provides methods to traverse and manipulate the virtual DOM.</td>
+                <td>Encourages minimal DOM traversal, simulating user interactions.</td>
+            </tr>
+            <tr>
+                <td>Testing Philosophy</td>
+                <td>More implementation details-focused.</td>
+                <td>More user-oriented, simulates real user behavior.</td>
+            </tr>
+            <tr>
+                <td>Learning Curve</td>
+                <td>Can have a steeper learning curve, especially for newcomers.</td>
+                <td>Relatively simpler learning curve, emphasizes best practices.</td>
+            </tr>
+            <tr>
+                <td>Official Recommendation</td>
+                <td>Not officially recommended by the React team.</td>
+                <td>Officially recommended by the React team.</td>
+            </tr>
+        </table>
+    </div>
+    <hr>
+    <h3>What is Jest and why do we use it?</h3>
+    <p>
+        Jest is a very popular and widely used JavaScript testing framework that is designed for testing JavaScript code. It provides a comprehensive set of tools and utilities for writing running and managing tests. <br><br>
+        Jest is used becasue:
+        <ol>
+            <li><b>Test Runner</b></li>
+            <li><b>Mocking and spying</b></li>
+            <li><b>Snapshot Testing</b></li>
+            <li><b>Asynchronous Testing</b></li>
+            <li><b>Integration with Babel</b></li>
+            <li>Etc.</li>
+        </ol>
+    </p>
+    <hr>
 </body>
 
 </html>
