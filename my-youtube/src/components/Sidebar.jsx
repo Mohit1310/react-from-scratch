@@ -9,7 +9,7 @@ const Sidebar = () => {
   if(!isMenuOpen) return null
 
   return (
-    <div className=" shadow p-5">
+    <div className="mt-[81.9px] shadow p-5 bg-white">
       <ul>
         <li><Link to={"/"}>Home</Link></li>
         <li>Shorts</li>

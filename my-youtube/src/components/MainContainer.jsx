@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import ButtonList from "./ButtonList";
 import VideoContainer from "./VideoContainer";
+import Shimmer from "./Shimmer";
 
 const MainContainer = () => {
   const list = [
@@ -20,7 +21,7 @@ const MainContainer = () => {
   ];
 
   return (
-    <div>
+    <div className="mt-20 ml-7">
       <div className="flex">
         {list.map((item, index) => (
           <ButtonList name={item} key={index} />
