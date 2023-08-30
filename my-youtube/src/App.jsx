@@ -1,11 +1,13 @@
-import './App.css'
-import Head from './components/Head'
-import Body from './components/Body'
-import { Provider } from 'react-redux'
-import store from './utils/store'
-import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+import "./App.css";
+import Head from "./components/Head";
+import Body from "./components/Body";
+import { Provider } from "react-redux";
+import store from "./utils/store";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import MainContainer from "./components/MainContainer";
-import WatchPage from './components/WatchPage'
+import { lazy, Suspense } from "react";
+
+const WatchPage = lazy(() => import("./components/WatchPage"));
 
 const appRouter = createBrowserRouter([
   {
@@ -13,27 +15,30 @@ const appRouter = createBrowserRouter([
     element: <Body />,
     children: [
       {
-        path:"/",
+        path: "/",
         element: <MainContainer />,
       },
       {
-        path:"watch",
-        element: <WatchPage />
-      }
-    ]
-  }
-])
+        path: "watch",
+        element: (
+          <Suspense>
+            <WatchPage />
+          </Suspense>
+        ),
+      },
+    ],
+  },
+]);
 
 function App() {
-
   return (
     <Provider store={store}>
       <Head />
       <RouterProvider router={appRouter}>
-      <Body />
+        <Body />
       </RouterProvider>
     </Provider>
-  )
+  );
 }
 
-export default App
+export default App;

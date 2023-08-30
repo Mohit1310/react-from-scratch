@@ -70,7 +70,7 @@ const Head = () => {
   };
 
   return (
-    <div className="grid grid-flow-col p-5 shadow fixed top-0 left-0 right-0 bg-white">
+    <div className="grid grid-flow-col p-5 shadow fixed top-0 left-0 right-0 bg-white ">
       <div className="flex col-span-1">
         <img
           onClick={() => toggleMenuHandler()}
@@ -90,7 +90,7 @@ const Head = () => {
             ref={inputRef}
             placeholder="Search"
             type="text"
-            className="w-4/5 p-2 border border-gray-400 rounded-l-full pl-4"
+            className="w-4/5 p-2 border border-gray-400 rounded-l-full pl-4 focus:outline-blue-800"
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
             onFocus={() => setShowSuggestions(true)}
@@ -123,7 +123,7 @@ const Head = () => {
         <img
           className="h-8"
           src="https://cdn-icons-png.flaticon.com/512/3119/3119338.png"
-          alt="user icon"
+          alt="notification icon"
         />
       </div>
     </div>
