@@ -3,15 +3,17 @@ import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
 const Sidebar = () => {
+  const isMenuOpen = useSelector((store) => store.app.isMenuOpen);
 
-  const isMenuOpen = useSelector(store => store.app.isMenuOpen);
-
-  if(!isMenuOpen) return null
+  //* Early return pattern
+  if (!isMenuOpen) return null;
 
   return (
-    <div className="mt-[81.9px] shadow p-5 bg-white">
+    <div className="mt-20 border shadow p-5 bg-white">
       <ul>
-        <li><Link to={"/"}>Home</Link></li>
+        <li>
+          <Link to={"/"}>Home</Link>
+        </li>
         <li>Shorts</li>
         <li>Subscribtions</li>
       </ul>

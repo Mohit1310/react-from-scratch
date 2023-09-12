@@ -21,7 +21,7 @@ const MainContainer = () => {
   ];
 
   return (
-    <div className="mt-20 ml-7">
+    <div className="mt-20 ml-3">
       <div className="flex">
         {list.map((item, index) => (
           <ButtonList name={item} key={index} />

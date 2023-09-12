@@ -16,7 +16,7 @@ const Head = () => {
 
   useEffect(() => {
     const handleKeyPress = (e) => {
-      if (e.key === "/") {
+      if (e.key === "/" && document.activeElement !== inputRef.current) {
         e.preventDefault();
         inputRef.current.focus();
       } else if (e.key === 'Escape') {
@@ -103,7 +103,7 @@ const Head = () => {
         {showSuggestions && (
           <>
             {suggestions.length === 0 ? null : (
-              <ul className="fixed bg-white py-3  w-[34rem] border border-gray-100 rounded-lg shadow-lg">
+              <ul className="fixed bg-white py-3  w-[29rem] border border-gray-100 rounded-lg shadow-lg">
                 {suggestions.map((s) => (
                   <li key={s} className="py-1 px-5 hover:bg-gray-100">
                     🔍 {s}
