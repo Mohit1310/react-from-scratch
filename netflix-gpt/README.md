@@ -2,7 +2,9 @@
 
 - Create Vite app
 - Configure Tailwind
-
+- Header
+- Login
+- Sign up form
 # Features
 - Login/Sign up
     - Sign In / Sign Up Form

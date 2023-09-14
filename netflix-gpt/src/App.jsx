@@ -1,10 +1,8 @@
-import './App.css'
+import Body from './components/Body'
 
 function App() {
   return (
-    <div>
-      <p className='font-bold text-green-800 '>Namaskaram!!!</p>
-    </div>
+    <Body />
   )
 }
 
