@@ -3,8 +3,15 @@
 - Create Vite app
 - Configure Tailwind
 - Header
+- Routing of App
 - Login
 - Sign up form
+- Form validation
+- useRef
+- Firebase setup
+- Deploying our app to production
+- Create SignUp User Account
+
 # Features
 - Login/Sign up
     - Sign In / Sign Up Form
