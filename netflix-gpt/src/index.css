@@ -3,5 +3,5 @@
 @tailwind utilities;
 
 .hideOverflow::-webkit-scrollbar {
-    display: none;
+  display: none;
 }
