@@ -11,13 +11,13 @@ function TruncateText({ text, maxWords }) {
   };
 
   return (
-    <div>
+    <div className="py-6 text-lg w-1/4">
       <span onClick={toggleExpansion} className="cursor-default">
         {isExpanded ? text : truncatedText}
         {words.length > maxWords && (
-          <span className="bg-black text-white">
+          <>
             {isExpanded ? "" : "....."}
-          </span>
+          </>
         )}
       </span>
     </div>
