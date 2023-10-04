@@ -98,9 +98,9 @@ const Login = () => {
     <div>
       <Header />
       <div className="absolute">
-        <img src={BG_URL} alt="background" />
+        <img className="w-screen h-screen object-cover" src={BG_URL} alt="background" />
       </div>
-      <form className="absolute p-12 bg-black/80 w-1/4 flex flex-col text-white mx-auto right-0 left-0 my-36 rounded-md justify-start">
+      <form className="absolute p-12 bg-black/80 w-fit md:w-1/4 flex flex-col text-white mx-auto right-0 left-0 my-36 rounded-md justify-start">
         <h1 className="font-bold text-3xl py-4">
           {isSignInForm ? "Sign In" : "Sign Up"}
         </h1>
