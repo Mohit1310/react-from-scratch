@@ -1,4 +1,6 @@
 import React from "react";
+import { PiUserCircleLight } from "react-icons/pi";
+import { useSelector } from "react-redux";
 
 const commentData = [
   {
@@ -83,13 +85,17 @@ const commentData = [
 const Comment = ({ data }) => {
   const { name, comment, replies } = data;
 
+  const isDarkMode = useSelector((store) => store.app.isDarkMode);
+
   return (
-    <div className="flex bg-gray-100 p-2 my-2 rounded-lg shadow-sm">
-      <img
-        className="w-8 h-8 rounded-full"
-        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQjT0119IxM1Hg7ROECAsZzevAosb8Bon8HfA&usqp=CAU"
-        alt="user profile"
-      />
+    <div
+      className={
+        isDarkMode
+          ? "flex bg-stone-600 p-2 my-2 rounded-lg shadow-sm text-white"
+          : "flex bg-gray-100 p-2 my-2 rounded-lg shadow-sm"
+      }
+    >
+      <PiUserCircleLight className="text-4xl" />
       <div className="px-2">
         <p className="font-bold">{name}</p>
         <p>{comment}</p>
@@ -99,10 +105,17 @@ const Comment = ({ data }) => {
 };
 
 const CommentList = ({ comments }) => {
+  const isDarkMode = useSelector((store) => store.app.isDarkMode);
   return comments.map((comment, index) => (
     <div key={index}>
       <Comment data={comment} />
-      <div className="pl-5 border border-l-black ml-5">
+      <div
+        className={
+          isDarkMode
+            ? "pl-5 border border-l-white ml-5"
+            : "pl-5 border border-l-black ml-5"
+        }
+      >
         <CommentList comments={comment.replies} />
       </div>
     </div>
@@ -110,9 +123,18 @@ const CommentList = ({ comments }) => {
 };
 
 const CommentsContainer = () => {
+  const isDarkMode = useSelector((store) => store.app.isDarkMode);
   return (
     <div>
-      <h1 className="text-2xl font-bold py-2">Comments:</h1>
+      <h1
+        className={
+          isDarkMode
+            ? "text-2xl font-bold py-2 text-white"
+            : "text-2xl font-bold py-2"
+        }
+      >
+        Comments:
+      </h1>
       <CommentList comments={commentData} />
     </div>
   );

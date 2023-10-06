@@ -3,10 +3,14 @@ import VideoCard, { AdVideoCard } from "./VideoCard";
 import { YOUTUBE_VIDEO_API } from "../utils/constants";
 import { Link } from "react-router-dom";
 import Shimmer from "./Shimmer";
+import { useSelector } from "react-redux";
 
 const VideoContainer = () => {
   const [videos, setVideos] = useState([]);
   const [loading, setLoading] = useState(true);
+
+  const isMenuOpen = useSelector((store) => store.app.isMenuOpen);
+  const isDarkMode = useSelector((store) => store.app.isDarkMode);
 
   useEffect(() => {
     getVideos();
@@ -20,8 +24,18 @@ const VideoContainer = () => {
     setLoading(false);
   };
 
+  const class1 = isMenuOpen
+    ? "flex flex-wrap gap-5 ml-[164px] absolute mt-12 -z-10 p-2"
+    : "flex flex-wrap gap-5 ml-4 absolute mt-12 -z-10 p-2";
+
+  const class2 = isDarkMode ? "bg-[#0f0f0f] text-white" : "";
+
+  const combinedClass = `${class1} ${class2}`;
+
   return (
-    <div className="flex flex-wrap gap-3">
+    <div
+      className={combinedClass}
+    >
       {videos[25] && <AdVideoCard info={videos[25]} />}
       {loading ? (
         <Shimmer />

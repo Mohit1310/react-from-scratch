@@ -1,8 +1,15 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { toggleMenu } from "../utils/appSlice";
+import { toggleMenu, toggleIsDarkMode } from "../utils/appSlice";
 import { YOUTUBE_SEARCH_API } from "../utils/constants";
 import { cacheResults } from "../utils/searchSlice";
+import { CiDark } from "react-icons/ci";
+import { PiUserCircleLight } from "react-icons/pi";
+import { BsSun } from "react-icons/bs";
+import { TfiBell } from "react-icons/tfi";
+import { GiHamburgerMenu } from "react-icons/gi";
+import { GoSearch } from "react-icons/go";
+import SvgComponent from "./YoutubeDark";
 
 const Head = () => {
   const [searchQuery, setSearchQuery] = useState("");
@@ -11,6 +18,7 @@ const Head = () => {
 
   const dispatch = useDispatch();
   const searchCache = useSelector((store) => store.search);
+  const isDarkMode = useSelector((store) => store.app.isDarkMode);
 
   const inputRef = useRef(null);
 
@@ -19,7 +27,7 @@ const Head = () => {
       if (e.key === "/" && document.activeElement !== inputRef.current) {
         e.preventDefault();
         inputRef.current.focus();
-      } else if (e.key === 'Escape') {
+      } else if (e.key === "Escape") {
         e.preventDefault();
         inputRef.current.blur();
       }
@@ -69,44 +77,75 @@ const Head = () => {
     dispatch(toggleMenu());
   };
 
+  const toggleDarkMode = () => {
+    dispatch(toggleIsDarkMode());
+  };
+
   return (
-    <div className="grid grid-flow-col p-5 shadow fixed top-0 left-0 right-0 bg-white ">
+    <div
+      className={
+        isDarkMode
+          ? "grid grid-flow-col p-5 fixed top-0 left-0 right-0 bg-[#0f0f0f] text-white h-20"
+          : "grid grid-flow-col p-5 fixed top-0 left-0 right-0 bg-white h-20"
+      }
+    >
       <div className="flex col-span-1">
-        <img
+        <GiHamburgerMenu
+          className="text-3xl cursor-pointer"
           onClick={() => toggleMenuHandler()}
-          className="h-8 cursor-pointer"
-          src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Hamburger_icon.svg/1024px-Hamburger_icon.svg.png"
-          alt="toggle menu icon"
         />
-        <img
-          className="h-8 ml-4"
-          src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/YouTube_Logo_2017.svg/1920px-YouTube_Logo_2017.svg.png"
-          alt="youtube logo"
-        />
+        {isDarkMode ? (
+          <SvgComponent />
+        ) : (
+          <img
+            className="h-8 ml-4"
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/YouTube_Logo_2017.svg/1920px-YouTube_Logo_2017.svg.png"
+            alt="youtube logo"
+          />
+        )}
       </div>
       <div className="col-span-1">
-        <div>
+        <div className="flex">
           <input
             ref={inputRef}
             placeholder="Search"
             type="text"
-            className="w-4/5 p-2 border border-gray-400 rounded-l-full pl-4 focus:outline-blue-800"
+            className={
+              isDarkMode
+                ? "w-4/5 p-2 rounded-l-full pl-4 bg-[#0f0f0f] border border-gray-400 focus:outline-none"
+                : "w-4/5 p-2 border border-gray-400 rounded-l-full pl-4 focus:outline-blue-800"
+            }
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
             onFocus={() => setShowSuggestions(true)}
             onBlur={() => setShowSuggestions(false)}
           />
-          <button className="border border-gray-400 rounded-r-full px-5 py-2 bg-gray-200">
-            🔍
+          <button
+            className={
+              isDarkMode
+                ? "rounded-r-full px-5 py-2 bg-[#222] border border-l-0 border-gray-400"
+                : "border border-gray-400 rounded-r-full px-5 py-2 bg-gray-200"
+            }
+          >
+            <GoSearch className="text-xl" />
           </button>
         </div>
         {showSuggestions && (
           <>
             {suggestions.length === 0 ? null : (
-              <ul className="fixed bg-white py-3  w-[29rem] border border-gray-100 rounded-lg shadow-lg">
+              <ul
+                className={
+                  isDarkMode
+                    ? "fixed bg-[#0f0f0f] py-3  w-[29rem] rounded-lg shadow-lg"
+                    : "fixed bg-white py-3  w-[29rem] border border-gray-100 rounded-lg shadow-lg"
+                }
+              >
                 {suggestions.map((s) => (
-                  <li key={s} className="py-1 px-5 hover:bg-gray-100">
-                    🔍 {s}
+                  <li
+                    key={s}
+                    className="flex gap-2 py-1 px-5 hover:bg-gray-200 cursor-pointer"
+                  >
+                    <GoSearch className="text-xl" /> {s}
                   </li>
                 ))}
               </ul>
@@ -115,16 +154,19 @@ const Head = () => {
         )}
       </div>
       <div className="col-span-1 flex flex-row-reverse gap-4">
-        <img
-          className="h-8"
-          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQjT0119IxM1Hg7ROECAsZzevAosb8Bon8HfA&usqp=CAU"
-          alt="user icon"
-        />
-        <img
-          className="h-8"
-          src="https://cdn-icons-png.flaticon.com/512/3119/3119338.png"
-          alt="notification icon"
-        />
+        <PiUserCircleLight className="text-4xl" />
+        <TfiBell className="text-3xl" />
+        {!isDarkMode ? (
+          <CiDark
+            className="text-3xl cursor-pointer"
+            onClick={() => toggleDarkMode()}
+          />
+        ) : (
+          <BsSun
+            className="text-3xl cursor-pointer"
+            onClick={() => toggleDarkMode()}
+          />
+        )}
       </div>
     </div>
   );

@@ -23,4 +23,6 @@ export const list = [
   "CSS",
   "Podcasts",
   "Bollywood",
+  "Leo",
+  "Lifestyle",
 ];

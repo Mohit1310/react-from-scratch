@@ -5,9 +5,7 @@ import { Provider } from "react-redux";
 import store from "./utils/store";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import MainContainer from "./components/MainContainer";
-import { lazy, Suspense } from "react";
-
-const WatchPage = lazy(() => import("./components/WatchPage"));
+import WatchPage from "./components/WatchPage";
 
 const appRouter = createBrowserRouter([
   {
@@ -20,11 +18,7 @@ const appRouter = createBrowserRouter([
       },
       {
         path: "watch",
-        element: (
-          <Suspense>
-            <WatchPage />
-          </Suspense>
-        ),
+        element: <WatchPage />,
       },
     ],
   },

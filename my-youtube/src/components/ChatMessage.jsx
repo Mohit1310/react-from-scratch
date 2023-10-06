@@ -1,17 +1,16 @@
-import React from 'react'
+import React from "react";
+import { PiUserCircleLight } from "react-icons/pi";
+import { useSelector } from "react-redux";
 
-const ChatMessage = ({name, message}) => {
+const ChatMessage = ({ name, message }) => {
+  const isDarkMode = useSelector((store) => store.app.isDarkMode);
   return (
-    <div className='flex items-center shadow-sm p-2'>
-      <img
-          className="h-8"
-          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQjT0119IxM1Hg7ROECAsZzevAosb8Bon8HfA&usqp=CAU"
-          alt="user icon"
-        />
-        <span className='font-bold px-2'>{name}</span>
-        <span>{message}</span>
+    <div className={isDarkMode ? "flex items-center shadow-sm p-2 bg-[#0f0f0f] text-white" :"flex items-center shadow-sm p-2"}>
+      <PiUserCircleLight className="text-4xl" />
+      <span className="font-bold px-2">{name}</span>
+      <span>{message}</span>
     </div>
-  )
-}
+  );
+};
 
-export default ChatMessage
+export default ChatMessage;
